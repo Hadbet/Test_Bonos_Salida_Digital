@@ -457,6 +457,12 @@
         divOriginal.parentNode.insertBefore(nuevoDiv, divOriginal.nextSibling);
     }
 
+    const btnAgregar = document.getElementById("btnAgregar");
+    btnAgregar.addEventListener("click", function (event) {
+        event.preventDefault(); // Evitar el submit del formulario
+        agregarDiv(); // Llamar a la función agregarDiv()
+    });
+
     document.getElementById("txtCorreoEncargado").addEventListener("blur", function () {
         var correoEncargado = this.value;
 
