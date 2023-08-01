@@ -336,19 +336,19 @@
 
                     <div class="col-6 col-12-small">
                         <p style="margin-bottom: 10px !important; margin-top: 10px;">Empresa</p>
-                        <input type="text" placeholder="Empresa" name="Empresa" id="txtEmpresa" required/>
+                        <input type="text" placeholder="Empresa" name="Empresa" id="txtEmpresa"/>
                     </div>
 
                     <div class="col-6 col-12-small">
                         <p style="margin-bottom: 10px !important; margin-top: 10px;">Dirección del destino</p>
                         <input type="text" placeholder="Dirección destino" name="Direccion" id="txtDireccion"
-                               required/>
+                               />
                     </div>
 
                     <div class="col-6 col-12-small">
                         <p style="margin-bottom: 10px !important; margin-top: 10px;">Correo de tu encargado</p>
                         <input type="text" placeholder="Dirección destino" name="Correo" id="txtCorreoEncargado"
-                               required/>
+                               />
                     </div>
 
                 </div>
@@ -356,7 +356,7 @@
                 <div class="col-12">
 							<textarea style="resize:none; margin-bottom: 15px; margin-top: 15px;" placeholder="Causa"
                                       rows="6" name="causa" id="txtCausa"
-                                      required></textarea>
+                                      ></textarea>
                 </div>
 
                 <div class="col-12">
