@@ -330,61 +330,60 @@
 
                             <button onclick="agregarDiv()">Agregar</button>
                         </div>
+                    </div>
+                    <hr>
 
-                        <hr>
 
-
-
-                        <div class="col-6 col-12-small">
-                            <p style="margin-bottom: 10px !important; margin-top: 10px;">Empresa</p>
-                            <input type="text" placeholder="Empresa" name="Empresa" id="txtEmpresa" required/>
-                        </div>
-
-                        <div class="col-6 col-12-small">
-                            <p style="margin-bottom: 10px !important; margin-top: 10px;">Dirección del destino</p>
-                            <input type="text" placeholder="Dirección destino" name="Direccion" id="txtDireccion"
-                                   required/>
-                        </div>
-
-                        <div class="col-6 col-12-small">
-                            <p style="margin-bottom: 10px !important; margin-top: 10px;">Correo de tu encargado</p>
-                            <input type="text" placeholder="Dirección destino" name="Correo" id="txtCorreoEncargado"
-                                   required/>
-                        </div>
-
+                    <div class="col-6 col-12-small">
+                        <p style="margin-bottom: 10px !important; margin-top: 10px;">Empresa</p>
+                        <input type="text" placeholder="Empresa" name="Empresa" id="txtEmpresa" required/>
                     </div>
 
-                    <div class="col-12">
-							<textarea style="resize:none; margin-bottom: 15px; margin-top: 15px;" placeholder="Causa"
-                                      rows="6" name="causa" id="txtCausa"
-                                      required></textarea>
+                    <div class="col-6 col-12-small">
+                        <p style="margin-bottom: 10px !important; margin-top: 10px;">Dirección del destino</p>
+                        <input type="text" placeholder="Dirección destino" name="Direccion" id="txtDireccion"
+                               required/>
                     </div>
 
-                    <div class="col-12">
-							<textarea placeholder="Comentarios" rows="6" style="resize:none" name="Comentarios"
-                                      id="txtComentarios"></textarea>
-                    </div>
-                    <div class="field" style="margin: 0 auto;">
-                        <label style="text-align: center;color: white;">Sube la imagen de tu material</label>
-                        <p></p>
-                        <input type="file" id="files" accept="image/*" onchange="preview_image()">
-                        <br><br>
-                        <center><img style="display: none;" id="imagenPrevisualizacion" height="250px"></center>
-                    </div>
-
-                    <img src="" style="display: none;" id="new">
-                    <img src="" style="display: none;" id="old">
-                    <div class="col-12" style="margin-top: 8%;">
-                        <ul class="actions special">
-                            <li><a id="guardarRegistro" onclick="test();" class="btn btnGreen">Confirmar salida</a></li>
-                        </ul>
+                    <div class="col-6 col-12-small">
+                        <p style="margin-bottom: 10px !important; margin-top: 10px;">Correo de tu encargado</p>
+                        <input type="text" placeholder="Dirección destino" name="Correo" id="txtCorreoEncargado"
+                               required/>
                     </div>
 
                 </div>
-            </form>
-            <!--<div><center><img style="width: 70%;" src="images/logoInicial_2.png"></center></div>-->
-        </section>
+
+                <div class="col-12">
+							<textarea style="resize:none; margin-bottom: 15px; margin-top: 15px;" placeholder="Causa"
+                                      rows="6" name="causa" id="txtCausa"
+                                      required></textarea>
+                </div>
+
+                <div class="col-12">
+							<textarea placeholder="Comentarios" rows="6" style="resize:none" name="Comentarios"
+                                      id="txtComentarios"></textarea>
+                </div>
+                <div class="field" style="margin: 0 auto;">
+                    <label style="text-align: center;color: white;">Sube la imagen de tu material</label>
+                    <p></p>
+                    <input type="file" id="files" accept="image/*" onchange="preview_image()">
+                    <br><br>
+                    <center><img style="display: none;" id="imagenPrevisualizacion" height="250px"></center>
+                </div>
+
+                <img src="" style="display: none;" id="new">
+                <img src="" style="display: none;" id="old">
+                <div class="col-12" style="margin-top: 8%;">
+                    <ul class="actions special">
+                        <li><a id="guardarRegistro" onclick="test();" class="btn btnGreen">Confirmar salida</a></li>
+                    </ul>
+                </div>
+
     </div>
+    </form>
+    <!--<div><center><img style="width: 70%;" src="images/logoInicial_2.png"></center></div>-->
+    </section>
+</div>
 
 
 </div>
