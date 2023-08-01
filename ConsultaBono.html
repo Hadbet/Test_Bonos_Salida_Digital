@@ -1,0 +1,609 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Grammer Queretaro</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="css/botones.css" />
+    <link rel="shortcut icon" href="lib/assets/img/iconoarriba.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <style>
+
+        body {
+            background-color: #292929;
+        }
+        
+        #imagenFolio {
+            width: 20%;
+        }
+        
+        #firmaOperador {
+            width: 30%;
+        }
+        
+        @media (max-width: 768px) {
+        #imagenFolio {
+            width: 50%;
+        }
+        
+        #firmaOperador {
+            width: 60%;
+        }
+    }
+
+    </style>
+</head>
+
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <span class="logo"><img style="width: 35%;" src="images/Grammer_Logo_Original_White_sRGB_screen_transparent.png" alt="" /></span>
+    </header>
+
+    <!-- Main -->
+    <div id="main">
+
+        <div id='InicioSeccion'>
+            <!-- First Section -->
+            <section id="first" class="main special">
+                <div id="alertaFecha" style="display: none" class="alert alert-danger" role="alert">
+                    El bono de salida supero su fecha de retorno.
+                </div>
+                <header class="major">
+                    <h2 style="padding-top: 3%;">Información del bono de salida.</h2>
+                    <center><button id='btnRecibo' class="btn btn-primary" style='display:none;' onclick='generarPDF()'>Generar Recibo</button></center>
+                </header>
+                
+                            <center><h3>Folio de registro</h3></center>
+                            <img id='imagenFolio' src='images/empty.png'/>
+                            <center><h4 id='txtFolioQR'></h4></center>
+                            <br><br>
+                <h3>Solicitante : <b id='nombreB'>Hadbet Ayari Altamirano Martinez</b></h3>
+                <br>
+                <hr>
+            </section>
+            <br>
+            <!-- Table -->
+            <section style='padding: 5%; margin-top: -8%'>
+                <br>
+                <center><h3>Información General del bono de salida</h3></center>
+                <br>
+                <div class="table-wrapper">
+                    <table class="alt">
+                        <tbody>
+                        <tr>
+                            <td>Descripción</td>
+                            <td id='descripcionB'></td>
+                        </tr>
+                        <tr>
+                            <td>Cantidad</td>
+                            <td id='cantidadB'></td>
+                        </tr>
+                        <tr>
+                            <td>Empresa</td>
+                            <td id='empresaB'></td>
+                        </tr>
+                        <tr>
+                            <td>Dirección de destino</td>
+                            <td id='direccionB'></td>
+                        </tr>
+                        <tr>
+                            <td>Tipo de material</td>
+                            <td id='tipoB'></td>
+                        </tr>
+                        <tr>
+                            <td>Causa de la salida</td>
+                            <td id='causaB'></td>
+                        </tr>
+                        <tr>
+                            <td>Cometarios adicionales</td>
+                            <td id='comentarioB'></td>
+                        </tr>
+                        <tr style='background: papayawhip;'>
+                            <td>Fecha de registro</td>
+                            <td id='fechaRegistroB'></td>
+                        </tr>
+                        <tr>
+                            <td>Fecha de salida</td>
+                            <td id='fechaSalidaB'></td>
+                        </tr>
+                        <tr>
+                            <td>Fecha de Retorno</td>
+                            <td id='fechaRetornoB'></td>
+                        </tr>
+                        <tr>
+                            <td>Fecha de Entrega</td>
+                            <td id='fechaEntregaB'></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+                <center><h2>Estatus del bono.</h2></center>
+                <hr>
+                <div id="semaforosSeccion" class="container text-center">
+                    <div class="row">
+                        <div id='seccionEncargado' class="col">
+                            <img id='imagenEncargado' src='images/green.png' style='width: 90%;'/>
+                            <label id='nombreEncargado' style='margin-bottom: 0px;'>Pendiente</label>
+                            <h4>Encargado</h4>
+                        </div>
+                        <div id='seccionControlling' class="col">
+                            <img id='imagenControlling' src='images/green.png' style='width: 90%;'/>
+                            <label id='nombreControlling' style='margin-bottom: 0px;'>Martin Rodriguez</label>
+                            <h4>Contraloría</h4>
+                        </div>
+                        <div id='seccionSEH' class="col">
+                            <img id='imagenSEH' src='images/red.png' style='width: 90%;'/>
+                            <label id='nombreSHE' style='margin-bottom: 0px;'>Mario Centeno</label>
+                            <h4>Seguridad e Higiene</h4>
+                        </div>
+                        <div id='seccionPlanta' class="col">
+                            <img id='imagenPlanta' src='images/yellow.png' style='width: 90%;'/>
+                            <label id='nombrePlanta' style='margin-bottom: 0px;'>Luis Olvera</label>
+                            <h4>Gerente Planta</h4>
+                        </div>
+                        <div id='seccionVigilante' class="col">
+                            <img id='imagenVigilancia' src='images/yellow.png' style='width: 90%;'/>
+                            <label id='nombreVigilante' style='margin-bottom: 0px;'>Pendiente</label>
+                            <h4>Vigilancia</h4>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div id='retroalimentacion' style='text-align: center;'>
+                    <div class="alert alert-danger" role="alert">
+                        <h3>Retroalimentación.</h3>
+                        <p id='mensajeRetroalimentacion'></p>
+                    </div>
+                </div>
+                <br/>
+
+                <hr>
+                <h2 style='text-align: center;'>Imagen del activo.</h2>
+                <hr>
+
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-4 col-12-small">
+                            <h4>Imagen de registro</h4>
+                            <br>
+                            <img id='imagenRegistro' src='images/empty.png' style='width: 90%;'/>
+                        </div>
+                        <div class="col-4 col-12-small">
+                            <h4>Imagen de salida</h4>
+                            <br>
+                            <img id='imagenSalida' src='images/empty.png' style='width: 90%;'/>
+                        </div>
+                        <div class="col-4 col-12-small">
+                            <h4>Imagen de entrega</h4>
+                            <br>
+                            <img id='imagenEntrega' src='images/empty.png' style='width: 90%;'/>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div id="seccionTransportista">
+                    <hr>
+                    <h2 style="text-align: center;">Datos del transportista.</h2>
+                    <hr>
+
+                    <div class="table-wrapper">
+                        <table class="alt">
+                            <tbody>
+                            <tr>
+                                <td>Línea de transportista</td>
+                                <td id='lineaTransportistaB'></td>
+                            </tr>
+                            <tr>
+                                <td>Nombre del operador</td>
+                                <td id='nombreOperadorB'></td>
+                            </tr>
+                            <tr>
+                                <td>Placas</td>
+                                <td id='placasB'></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col">
+                                <h4>Firma del transportista</h4>
+                                <br>
+                                <img id='firmaOperador' src='images/empty.png'/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+
+
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <p class="copyright">&copy; Grammer Querétaro. Design: <a href="">Grammer Querétaro</a>.</p>
+</footer>
+
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+<!-- Incluye pdfmake.min.js desde el CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+
+<!-- Incluye vfs_fonts.js desde el CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.4.4/qrcode.min.js"></script>
+  
+
+<script>
+
+
+
+function getImageDataURL(imageUrl) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = function () {
+      const canvas = document.createElement('canvas');
+      canvas.width = image.width;
+      canvas.height = image.height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(image, 0, 0, image.width, image.height);
+      const dataURL = canvas.toDataURL('image/png');
+      resolve(dataURL);
+    };
+    image.onerror = function () {
+      console.error('Error al cargar la imagen:', imageUrl);
+      reject(new Error('Error al cargar la imagen'));
+    };
+    image.src = imageUrl;
+  });
+}
+
+function generateQRCode(data) {
+  // Utilizamos el servicio "goqr.me" para generar el código QR y obtener su imagen
+  const apiUrl = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(data)}&size=128x128`;
+
+  // Retornamos una Promise para cargar la imagen
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = "Anonymous";
+    img.onload = function () {
+      const canvas = document.createElement('canvas');
+      canvas.width = this.width;
+      canvas.height = this.height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(this, 0, 0);
+      const dataURL = canvas.toDataURL('image/png');
+      resolve(dataURL);
+    };
+    img.onerror = function () {
+      reject(new Error('Error al cargar la imagen del código QR'));
+    };
+    img.src = apiUrl;
+  });
+}
+
+// Function to generate the PDF
+async function generarPDF() {
+  try {
+    var folioQR = document.getElementById('txtFolioQR').innerText;
+    var solicitante = document.getElementById('nombreB').innerText;
+    var descripcion = document.getElementById('descripcionB').innerText;
+    var cantidad = document.getElementById('cantidadB').innerText;
+    var empresa = document.getElementById('empresaB').innerText;
+    var direccionDestino = document.getElementById('direccionB').innerText;
+    var tipoMaterial = document.getElementById('tipoB').innerText;
+    var causa = document.getElementById('causaB').innerText;
+    var comentarios = document.getElementById('comentarioB').innerText;
+    var fechaRegistro = document.getElementById('fechaRegistroB').innerText;
+    var fechaSalida = document.getElementById('fechaSalidaB').innerText;
+    var fechaRetorno = document.getElementById('fechaRetornoB').innerText;
+    var nombreTransporte = document.getElementById('nombreOperadorB').innerText;
+    var lineaTransportista = document.getElementById('lineaTransportistaB').innerText;
+    var placasTransportista = document.getElementById('placasB').innerText;
+
+    // Genera el código QR utilizando la URL generada por "goqr.me"
+    const qrCodeURL = 'https://arketipo.mx/Controlling/BonoSalida/ConsultaBono.html?0eb20346=' + identificador;
+
+    // Obtenemos los DataURL de ambas imágenes
+    const imagenFolioURL = 'dao/fotos/firmas/'+ identificador + '.png'; // Coloca aquí la URL real de la imagen
+    const imagenLogoURL = 'images/GrammerLogo.png';
+
+    const imagenFolioDataURL = await getImageDataURL(imagenFolioURL);
+    const imagenBajoTablaDataURL = await generateQRCode(qrCodeURL);
+    const imagenLogoDataURL = await getImageDataURL(imagenLogoURL);
+
+    // Configuramos el contenido del PDF con ambas imágenes
+    var docDefinition = {
+      header: ``,
+      content: [
+        { image: imagenLogoDataURL, width: 100, alignment: 'right', margin: [0, -25] },
+        {
+          text: 'Bono de Salida', // Título
+          fontSize: 20, // Tamaño de fuente grande, ajusta este valor según tus necesidades
+          bold: true,
+          alignment: 'center', // Centrado del título
+          margin: [0, 15], // Espacio superior de 30 unidades
+        },
+        {
+          text: `Expedición de bono de salida electrónico que tiene como folio 00${folioQR} realizado en Grammer Automotive Puebla S.A de C.V, a continuación se describe el material de salida aprobado por Grammer Querétaro. `, // Título
+          style: 'header', // Estilo del título
+          alignment: '', // Centrado del título
+          margin: [0, 20], // Espacio superior de 30 unidades
+        },
+        {
+          table: {
+            headerRows: 1,
+            widths: ['*', '*'],
+            body: [
+              ['Solicitante', solicitante],
+              ['Descripción', descripcion],
+              ['Cantidad', cantidad],
+              ['Cometarios adicionales', comentarios],
+              ['Empresa', empresa],
+              ['Dirección de destino', direccionDestino],
+              ['Tipo de material', tipoMaterial],
+              ['Causa de la salida', causa],
+              ['Fecha de registro', fechaRegistro],
+              ['Fecha de salida', fechaSalida],
+              ['Fecha de Retorno', fechaRetorno],
+              ['Linea de transportista', lineaTransportista],
+              ['Placas de transporte', placasTransportista],
+            ],
+          },
+        },
+        { image: imagenFolioDataURL, width: 100, alignment: 'center', margin: [0, 10] },
+        {
+          text: nombreTransporte, // Título
+          style: 'header', // Estilo del título
+          alignment: 'center', // Centrado del título
+          margin: [0, 0], // Espacio superior de 30 unidades
+        },
+        {
+          text: 'Firma del transportista', // Título
+          style: 'header', // Estilo del título
+          alignment: 'center', // Centrado del título
+          margin: [0, 0], // Espacio superior de 30 unidades
+        },
+        { image: imagenBajoTablaDataURL, width: 100, alignment: 'center', margin: [0, 20] },
+        {
+          text: 'Para verificar la veracidad de este bono electrónico, escanea el siguiente código QR.', // Título
+          style: 'header', // Estilo del título
+          alignment: 'center', // Centrado del título
+          margin: [0, 0], // Espacio superior de 30 unidades
+        },
+      ],
+      footer: {
+        text: 'Grammer Querétaro - Reporte generado el ' + new Date().toLocaleDateString(),
+        alignment: 'center', // Centrado del footer
+      },
+    };
+
+    // Generate the PDF and trigger the download
+    pdfMake.createPdf(docDefinition).download(`bono_salida_${folioQR}.pdf`);
+  } catch (error) {
+    console.error('Error al generar el PDF:', error);
+  }
+}
+</script>
+
+<script>
+
+    var identificador = getParameterByName("0eb20346");
+    console.log(identificador);
+    
+    var numero = identificador;
+    var hexadecimal = numero.toString(16);
+
+    console.log(hexadecimal);
+
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        var cadena = results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        var arrTerminos = cadena.split(',');
+        return arrTerminos[0];
+    }
+
+    var email,nomina,solicitante,descripcion,cantidad,um,empresa,portador,direccion,tipo,retorno,fechaRetorno,causa,comentarios,correoEncargado,idImagen,bitacora;
+
+    $.getJSON('https://arketipo.mx/Controlling/BonoSalida/dao/DaoConsultarSalida.php?id='+identificador, function (data) {
+
+        email = data.data[0].CorreoSolicitante;
+        nomina = data.data[0].NominaSolicitante;
+        solicitante = data.data[0].NombreSolicitante;
+        descripcion = data.data[0].Descripcion;
+        cantidad = data.data[0].Cantidad;
+        um = data.data[0].UnidadMedida;
+        empresa = data.data[0].Empresa;
+        direccion = data.data[0].Direccion;
+        tipo = data.data[0].TipoSalida;
+        fechaRetorno = data.data[0].FechaRetorno;
+        retorno = data.data[0].TipoRetorno;
+        causa = data.data[0].Causa;
+        comentario = data.data[0].Comentarios;
+        idImagen = data.data[0].ImagenRegistro;
+        bitacora = data.data[0].IdBitacora;
+        tipoBono = data.data[0].TipoBono;
+
+        document.getElementById("descripcionB").innerHTML = data.data[0].Descripcion;
+        document.getElementById("txtFolioQR").innerHTML = bitacora;
+        document.getElementById("cantidadB").innerHTML = data.data[0].Cantidad + " " + data.data[0].UnidadMedida;
+        document.getElementById("empresaB").innerHTML = data.data[0].Empresa;
+        document.getElementById("direccionB").innerHTML = data.data[0].Direccion;
+        document.getElementById("tipoB").innerHTML = data.data[0].TipoSalida;
+        document.getElementById("causaB").innerHTML = data.data[0].Causa;
+        document.getElementById("comentarioB").innerHTML = data.data[0].Comentarios;
+        document.getElementById("fechaRegistroB").innerHTML = data.data[0].FechaRegistro;
+        document.getElementById("fechaSalidaB").innerHTML = data.data[0].FechaSalida;
+        document.getElementById("nombreEncargado").innerHTML = data.data[0].CorreoEncargado;
+        
+        if (data.data[0].Notificacion=="1"){
+            document.getElementById("alertaFecha").style.display="block";
+        }
+
+        if(data.data[0].TipoRetorno=="Si"){
+            document.getElementById("fechaRetornoB").innerHTML = data.data[0].FechaRetorno;
+        }else{
+            document.getElementById("fechaRetornoB").innerHTML = "Material no retorna.";
+        }
+        document.getElementById("nombreB").innerHTML = data.data[0].NombreSolicitante;
+        document.getElementById("fechaEntregaB").innerHTML = data.data[0].FechaEntrega;
+
+        if(data.data[0].ImagenRegistro!=""){
+            document.getElementById("imagenRegistro").src = "dao/fotos/registro/"+data.data[0].ImagenRegistro+".png";
+            document.getElementById("imagenFolio").src = "dao/fotos/barcode/"+data.data[0].ImagenRegistro+".png";
+        }else{
+        }
+
+
+        if(data.data[0].ImagenEntrega!=""){
+            document.getElementById("imagenEntrega").src = "dao/fotos/entregas/"+data.data[0].ImagenEntrega+".png";
+        }else{
+        }
+
+        if(data.data[0].ImagenSalida!=""){
+            document.getElementById("imagenSalida").src = "dao/fotos/salidas/"+data.data[0].ImagenSalida+".png";
+        }else{
+        }
+
+        if(data.data[0].Firma!=""){
+            document.getElementById("firmaOperador").src = "dao/fotos/firmas/"+data.data[0].Firma+".png";
+            rutaFirma ="dao/fotos/firmas/"+data.data[0].Firma+".png";
+            document.getElementById("btnRecibo").style.display = 'block';
+        }else{
+        }
+
+        if (data.data[0].LineaTransportista !=''){
+            document.getElementById("lineaTransportistaB").innerHTML = data.data[0].LineaTransportista;
+            document.getElementById("nombreOperadorB").innerHTML = data.data[0].NombreOperador;
+            document.getElementById("placasB").innerHTML = data.data[0].PlacasTransportista;
+        }else{
+            document.getElementById("seccionTransportista").style.display='none';
+        }
+
+
+        if(data.data[0].Retroalimentacion!=''){
+            document.getElementById("mensajeRetroalimentacion").innerHTML = data.data[0].Retroalimentacion;
+        }else{
+            document.getElementById("retroalimentacion").style.display='none';
+        }
+
+        if (data.data[0].TipoBono=='1'){
+            document.getElementById("semaforosSeccion").style.width='50%';
+            document.getElementById("seccionControlling").style.display = "none";
+            document.getElementById("seccionSEH").style.display = "none";
+            document.getElementById("seccionPlanta").style.display = "none";
+
+            if (data.data[0].ConfirmacionEncargado=='1'){
+                document.getElementById("imagenEncargado").src='images/green.png';
+            }
+            if (data.data[0].ConfirmacionEncargado=='2'){
+                document.getElementById("imagenEncargado").src='images/red.png';
+            }
+            if (data.data[0].ConfirmacionEncargado=='0'){
+                document.getElementById("imagenEncargado").src='images/yellow.png';
+            }
+
+            if (data.data[0].ConfirmacionVigilancia=='1'){
+                document.getElementById("imagenVigilancia").src='images/green.png';
+            }
+            if (data.data[0].ConfirmacionVigilancia=='2'){
+                document.getElementById("imagenVigilancia").src='images/red.png';
+            }
+            if (data.data[0].ConfirmacionVigilancia=='0'){
+                document.getElementById("imagenVigilancia").src='images/yellow.png';
+            }
+
+            if (data.data[0].NombreVigilanteS!=''){
+                document.getElementById("nombreVigilante").innerHTML=data.data[0].NombreVigilanteS;
+            }
+        }else{
+            if (data.data[0].ConfirmacionEncargado=='1'){
+                document.getElementById("imagenEncargado").src='images/green.png';
+            }
+            if (data.data[0].ConfirmacionEncargado=='2'){
+                document.getElementById("imagenEncargado").src='images/red.png';
+            }
+            if (data.data[0].ConfirmacionEncargado=='0'){
+                document.getElementById("imagenEncargado").src='images/yellow.png';
+            }
+
+            if (data.data[0].ConfirmacionVigilancia=='1'){
+                document.getElementById("imagenVigilancia").src='images/green.png';
+            }
+            if (data.data[0].ConfirmacionVigilancia=='2'){
+                document.getElementById("imagenVigilancia").src='images/red.png';
+            }
+            if (data.data[0].ConfirmacionVigilancia=='0'){
+                document.getElementById("imagenVigilancia").src='images/yellow.png';
+            }
+
+            if (data.data[0].ConfirmacionPlant=='1'){
+                document.getElementById("imagenPlanta").src='images/green.png';
+            }
+            if (data.data[0].ConfirmacionPlant=='2'){
+                document.getElementById("imagenPlanta").src='images/red.png';
+            }
+            if (data.data[0].ConfirmacionPlant=='0'){
+                document.getElementById("imagenPlanta").src='images/yellow.png';
+            }
+
+            if (data.data[0].ConfirmacionControlling=='1'){
+                document.getElementById("imagenControlling").src='images/green.png';
+            }
+            if (data.data[0].ConfirmacionControlling=='2'){
+                document.getElementById("imagenControlling").src='images/red.png';
+            }
+            if (data.data[0].ConfirmacionControlling=='0'){
+                document.getElementById("imagenControlling").src='images/yellow.png';
+            }
+
+            if (data.data[0].ConfirmacionEhs=='1'){
+                document.getElementById("imagenSEH").src='images/green.png';
+            }
+            if (data.data[0].ConfirmacionEhs=='2'){
+                document.getElementById("nombreVigilante").innerHTML='';
+                document.getElementById("imagenSEH").src='images/red.png';
+            }
+            if (data.data[0].ConfirmacionEhs=='0'){
+                document.getElementById("nombreVigilante").innerHTML='';
+                document.getElementById("imagenSEH").src='images/yellow.png';
+            }
+
+            if (data.data[0].NombreVigilanteS!=''){
+                document.getElementById("nombreVigilante").innerHTML=data.data[0].NombreVigilanteS;
+            }
+
+        }
+
+    });
+</script>
+
+</body>
+
+</html>
