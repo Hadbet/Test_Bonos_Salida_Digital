@@ -418,7 +418,7 @@
 
     function agregarDiv() {
         // Obtener el div original
-        const divOriginal = document.getElementById("divOriginal");
+        const divOriginal = document.getElementById("fila");
 
         // Clonar el div original
         const nuevoDiv = divOriginal.cloneNode(true);
