@@ -169,7 +169,7 @@
 
                     <hr>
 
-                    <div class="col-6 col-12-small">
+                    <div class="col-12 col-12-small">
                         <p style="margin-bottom: 10px !important;">Descripción / Modelo / No.Serie</p>
                         <input type="text" placeholder="Descripción" name="Descripcion" id="txtDescripcion" required/>
                     </div>
