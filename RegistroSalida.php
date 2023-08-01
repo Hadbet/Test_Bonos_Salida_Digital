@@ -327,13 +327,12 @@
                                        id="txtFechaRetorno"
                                        style="display:none;"/>
                             </div>
+
+                            <button onclick="agregarDiv()">Agregar</button>
                         </div>
 
                         <hr>
 
-                        <div id="divAgregar" style="margin-top: 10px;">
-                            <img src="lib/assets/img/feliz.png" alt="Agregar" id="btnAgregar" />
-                        </div>
 
 
                         <div class="col-6 col-12-small">
@@ -416,23 +415,27 @@
 
 <script>
 
-    document.addEventListener("DOMContentLoaded", function () {
-        // Obtener el div existente y el div para agregar
-        const divExistente = document.getElementById("fila");
-        const divAgregar = document.getElementById("divAgregar");
+    let contador = 1;
 
-        // Obtener la imagen de "+"
-        const btnAgregar = document.getElementById("btnAgregar");
+    function agregarDiv() {
+        // Obtener el div original
+        const divOriginal = document.getElementById("fila");
 
-        // Manejar el evento de clic en la imagen de "+"
-        btnAgregar.addEventListener("click", function () {
-            // Clonar el div existente para agregar uno nuevo
-            const nuevoDiv = divExistente.cloneNode(true);
+        // Clonar el div original
+        const nuevoDiv = divOriginal.cloneNode(true);
 
-            // Agregar el nuevo div justo antes del div para agregar
-            divAgregar.parentNode.insertBefore(nuevoDiv, divAgregar);
-        });
-    });
+        // Generar un ID único para el nuevo div
+        const nuevoID = "fila" + contador;
+
+        // Actualizar el ID del nuevo div
+        nuevoDiv.id = nuevoID;
+
+        // Incrementar el contador para el próximo div
+        contador++;
+
+        // Agregar el nuevo div justo después del div original
+        divOriginal.parentNode.insertBefore(nuevoDiv, divOriginal.nextSibling);
+    }
 
     document.getElementById("txtCorreoEncargado").addEventListener("blur", function () {
         var correoEncargado = this.value;
