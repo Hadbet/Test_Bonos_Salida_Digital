@@ -173,13 +173,13 @@
                         <div class="col-12 col-12-small">
                             <p style="margin-bottom: 10px !important;">Descripción / Modelo / No.Serie</p>
                             <input type="text" placeholder="Descripción" name="Descripcion" id="txtDescripcion"
-                                   required/>
+                                   />
                         </div>
 
                         <div class="col-6">
                             <p style="margin-bottom: 10px !important; margin-top: 10px;">Cantidad</p>
                             <input type="number" placeholder="Cantidad" name="Cantidad" id="txtCantidad" min="1"
-                                   pattern="^[0-9]+" required/>
+                                   pattern="^[0-9]+" />
                         </div>
 
                         <div class="col-6">
