@@ -169,148 +169,172 @@
 
                     <hr>
 
-                    <div class="col-12 col-12-small">
-                        <p style="margin-bottom: 10px !important;">Descripción / Modelo / No.Serie</p>
-                        <input type="text" placeholder="Descripción" name="Descripcion" id="txtDescripcion" required/>
-                    </div>
+                    <div id="fila">
+                        <div class="col-12 col-12-small">
+                            <p style="margin-bottom: 10px !important;">Descripción / Modelo / No.Serie</p>
+                            <input type="text" placeholder="Descripción" name="Descripcion" id="txtDescripcion"
+                                   required/>
+                        </div>
 
-                    <div class="col-6">
-                        <p style="margin-bottom: 10px !important; margin-top: 10px;">Cantidad</p>
-                        <input type="number" placeholder="Cantidad" name="Cantidad" id="txtCantidad" min="1"
-                               pattern="^[0-9]+" required/>
-                    </div>
+                        <div class="col-6">
+                            <p style="margin-bottom: 10px !important; margin-top: 10px;">Cantidad</p>
+                            <input type="number" placeholder="Cantidad" name="Cantidad" id="txtCantidad" min="1"
+                                   pattern="^[0-9]+" required/>
+                        </div>
 
-                    <div class="col-6">
-                        <p style="margin-bottom: 10px !important; margin-top: 10px;">U/M</p>
-                        <select style="margin-bottom: 20px" placeholder="Unidad de medida" name="um" id="txtUm">
-                            <option value="" selected>Seleccione la unidad de medida</option>
-                            <option value="Pieza">Piezas</option>
-                            <option value="Kilogramos">Kilogramos</option>
-                            <option value="Litros">Litros</option>
-                            <option value="Libras">Libras</option>
-                            <option value="Libras">Centímetros</option>
-                            <option value="Metros">Metros</option>
-                            <option value="Gramos">Gramos</option>
-                            <option value="Onzas">Onzas</option>
-                            <option value="Toneladas">Toneladas</option>
-                        </select>
-                    </div>
-
-                    <div class="col-12">
-                        <select id="sltTipo" style="margin-bottom: 15px; margin-top: 30px;">
-                            <option value="value1" selected>Seleccione el tipo</option>
-                            <option value="E-Baja de activos_CO">Baja de activos</option>
-                            <option value="E-Materias primas a otras plantas_L">Materias primas a otras plantas</option>
-                            <option value="O-Tarimas_L">Tarimas</option>
-                            <option value="O-Cajas vacias retorno Tetla_L">Cajas vacias retorno Tetla</option>
-                            <option value="O-Material de empaque de cartón_L">Material de empaque de cartón</option>
-                            <option value="O-Totes vacios_L">Totes vacios</option>
-                            <option value="O-Tubos_L">Tubos</option>
-                            <option value="O-Placa_L">Placa</option>
-                            <option value="O-Empaque Gris_L">Empaque Gris</option>
-                            <option value="O-Empaque dañado (Grammer)_L">Empaque dañado (Grammer)</option>
-                            <option value="O-Limpieza de empaque_L">Limpieza de empaque</option>
-                            <option value="O-Modificación o reparación de racks (Cliente)_L">Modificación o reparación
-                                de racks (Cliente)
-                            </option>
-                            <option value="O-Residuos_E">Residuos</option>
-                            <option value="O-Tanques de respiración_E">Tanques de respiración</option>
-                            <option value="O-Extintores_E">Extintores</option>
-                            <option value="O-Cambio de EPP/Insumos de limpieza por defecto_E">Cambio de EPP/Insumos de
-                                limpieza por defecto
-                            </option>
-                            <option value="O-Equipos a reparación (patines manuales, etc)_E">Equipos a reparación
-                                (patines manuales/jaulas dispensadoras/equipo médico/dispensadores de
-                                agua/dispensadores de sanitizantes)
-                            </option>
-                            <option value="O-Insumos de seguridad para eventos(Megafono/etc.)_E">Insumos de seguridad
-                                para eventos(Megafono/botarga/radios/etc.)
-                            </option>
-                            <option value="O-Equipo de medición y pruebas para calibración_C">Equipo de medición y
-                                pruebas para calibración
-                            </option>
-                            <option value="O-Equipo de medición y pruebas para reparación_C">Equipo de medición y
-                                pruebas para reparación
-                            </option>
-                            <option value="O-Muestras para aprobación de clientes / Proveedores_C">Muestras para
-                                aprobación de clientes / Proveedores
-                            </option>
-                            <option value="O-Muestras para pruebas externas_C">Muestras para pruebas externas</option>
-                            <option value="O-Salidas de material (Retrabajo)_C">Salidas de material (Retrabajo)</option>
-                            <option value="O-Salidas de material (Retorno a proveedor)_C">Salidas de material (Retorno a
-                                proveedor)
-                            </option>
-                            <option value="E-Moldes/herramentales_M">Moldes/herramentales</option>
-                            <option value="E-Reparaciones a maquinas, equipos y componentes_M">Reparaciones a maquinas,
-                                equipos y componentes
-                            </option>
-                            <option value="O-Salida de refacciones/equipos por garantía_M">Salida de refacciones/equipos
-                                por garantía
-                            </option>
-                            <option value="O-Rediseño y/o modificación de herramientas y maquinados._M">Rediseño y/o
-                                modificación de herramientas y maquinados.
-                            </option>
-                            <option value="O-Equipo/refacción de muestra para fabricación._M">Equipo/refacción de
-                                muestra para fabricación.
-                            </option>
-                            <option value="O-Tanques vacios para rellenar mezcla soldadura y nitrogeno_M">Tanques vacios
-                                para rellenar mezcla soldadura y nitrogeno
-                            </option>
-                            <option
-                                value="E-Residuos de equipo inutilizado (ventiladores, motores, bombas, cilindros neumáticos,etc.)_M">
-                                Residuos de equipo inutilizado (ventiladores, motores, bombas, cilindros
-                                neumáticos,etc.)
-                            </option>
-                            <option value="O-Componantes de materia prima, muestras, prototipos_I">Componantes de
-                                materia prima, muestras, prototipos
-                            </option>
-                            <option value="E-Subprocesos de materia prima dentro de SAP (en fase de lanzamientos)_I">
-                                Subprocesos de materia prima dentro de SAP (en fase de lanzamientos)
-                            </option>
-                            <option
-                                value="E-Salida de estaciones/ racks / herramentales para actualización y/o reparación_I">
-                                Salida de estaciones/ racks / herramentales para actualización y/o reparación
-                            </option>
-                            <option value="E-Salida de materia prima/ PT para pruebas con proveedor_I">Salida de materia
-                                prima/ PT para pruebas con proveedor
-                            </option>
-                            <option value="O-Producto PT, muestras, prototipos_I">Producto PT, muestras, prototipos
-                            </option>
-                            <option value="E-Reparacion de equipos computacionales o del área_T">Reparacion de equipos
-                                computacionales o del área
-                            </option>
-                            <option value="O-Cartuchos de tonner_T">Cartuchos de tonner</option>
-                            <option value="E-Equipos de cómputo para préstamo Tetla_T">Equipos de cómputo para préstamo
-                                Tetla
-                            </option>
-                            <option value="O-Sillas para Reparar (comedor)_R">Sillas para Reparar (comedor)</option>
-                            <option value="O-Equipo Mayor para reparar (comedor)_R">Equipo Mayor para reparar
-                                (comedor)
-                            </option>
-                            <option value="O-Hornos de Microondas a reparación (comedor)_R">Hornos de Microondas a
-                                reparación (comedor)
-                            </option>
-                            <option value="O-Equipo Mayor a desecho (comedor)_R">Equipo Mayor a desecho (comedor)
-                            </option>
-                        </select>
-
-                        <p id="tipoSalidaP" style="margin-bottom: 10px !important;"></p>
-
-                        <div class="col-12">
-                            <select id="sltRetorno" style="margin-bottom: 15px; margin-top: 15px;">
-                                <option value="valueR">¿El material retorna?</option>
-                                <option value="Si">Sí</option>
-                                <option value="No">No</option>
+                        <div class="col-6">
+                            <p style="margin-bottom: 10px !important; margin-top: 10px;">U/M</p>
+                            <select style="margin-bottom: 20px" placeholder="Unidad de medida" name="um" id="txtUm">
+                                <option value="" selected>Seleccione la unidad de medida</option>
+                                <option value="Pieza">Piezas</option>
+                                <option value="Kilogramos">Kilogramos</option>
+                                <option value="Litros">Litros</option>
+                                <option value="Libras">Libras</option>
+                                <option value="Libras">Centímetros</option>
+                                <option value="Metros">Metros</option>
+                                <option value="Gramos">Gramos</option>
+                                <option value="Onzas">Onzas</option>
+                                <option value="Toneladas">Toneladas</option>
                             </select>
                         </div>
 
-                        <div class="col-6 col-12-small">
-                            <p id="fech" name="fech" style="display:none; margin-bottom: 10px !important;">Fecha de
-                                Retorno</p>
-                            <input class="form-control input-sm" type="datetime-local" name="fechas"
-                                   id="txtFechaRetorno"
-                                   style="display:none;"/>
+                        <div class="col-12">
+                            <select id="sltTipo" style="margin-bottom: 15px; margin-top: 30px;">
+                                <option value="value1" selected>Seleccione el tipo</option>
+                                <option value="E-Baja de activos_CO">Baja de activos</option>
+                                <option value="E-Materias primas a otras plantas_L">Materias primas a otras plantas
+                                </option>
+                                <option value="O-Tarimas_L">Tarimas</option>
+                                <option value="O-Cajas vacias retorno Tetla_L">Cajas vacias retorno Tetla</option>
+                                <option value="O-Material de empaque de cartón_L">Material de empaque de cartón</option>
+                                <option value="O-Totes vacios_L">Totes vacios</option>
+                                <option value="O-Tubos_L">Tubos</option>
+                                <option value="O-Placa_L">Placa</option>
+                                <option value="O-Empaque Gris_L">Empaque Gris</option>
+                                <option value="O-Empaque dañado (Grammer)_L">Empaque dañado (Grammer)</option>
+                                <option value="O-Limpieza de empaque_L">Limpieza de empaque</option>
+                                <option value="O-Modificación o reparación de racks (Cliente)_L">Modificación o
+                                    reparación
+                                    de racks (Cliente)
+                                </option>
+                                <option value="O-Residuos_E">Residuos</option>
+                                <option value="O-Tanques de respiración_E">Tanques de respiración</option>
+                                <option value="O-Extintores_E">Extintores</option>
+                                <option value="O-Cambio de EPP/Insumos de limpieza por defecto_E">Cambio de EPP/Insumos
+                                    de
+                                    limpieza por defecto
+                                </option>
+                                <option value="O-Equipos a reparación (patines manuales, etc)_E">Equipos a reparación
+                                    (patines manuales/jaulas dispensadoras/equipo médico/dispensadores de
+                                    agua/dispensadores de sanitizantes)
+                                </option>
+                                <option value="O-Insumos de seguridad para eventos(Megafono/etc.)_E">Insumos de
+                                    seguridad
+                                    para eventos(Megafono/botarga/radios/etc.)
+                                </option>
+                                <option value="O-Equipo de medición y pruebas para calibración_C">Equipo de medición y
+                                    pruebas para calibración
+                                </option>
+                                <option value="O-Equipo de medición y pruebas para reparación_C">Equipo de medición y
+                                    pruebas para reparación
+                                </option>
+                                <option value="O-Muestras para aprobación de clientes / Proveedores_C">Muestras para
+                                    aprobación de clientes / Proveedores
+                                </option>
+                                <option value="O-Muestras para pruebas externas_C">Muestras para pruebas externas
+                                </option>
+                                <option value="O-Salidas de material (Retrabajo)_C">Salidas de material (Retrabajo)
+                                </option>
+                                <option value="O-Salidas de material (Retorno a proveedor)_C">Salidas de material
+                                    (Retorno a
+                                    proveedor)
+                                </option>
+                                <option value="E-Moldes/herramentales_M">Moldes/herramentales</option>
+                                <option value="E-Reparaciones a maquinas, equipos y componentes_M">Reparaciones a
+                                    maquinas,
+                                    equipos y componentes
+                                </option>
+                                <option value="O-Salida de refacciones/equipos por garantía_M">Salida de
+                                    refacciones/equipos
+                                    por garantía
+                                </option>
+                                <option value="O-Rediseño y/o modificación de herramientas y maquinados._M">Rediseño y/o
+                                    modificación de herramientas y maquinados.
+                                </option>
+                                <option value="O-Equipo/refacción de muestra para fabricación._M">Equipo/refacción de
+                                    muestra para fabricación.
+                                </option>
+                                <option value="O-Tanques vacios para rellenar mezcla soldadura y nitrogeno_M">Tanques
+                                    vacios
+                                    para rellenar mezcla soldadura y nitrogeno
+                                </option>
+                                <option
+                                    value="E-Residuos de equipo inutilizado (ventiladores, motores, bombas, cilindros neumáticos,etc.)_M">
+                                    Residuos de equipo inutilizado (ventiladores, motores, bombas, cilindros
+                                    neumáticos,etc.)
+                                </option>
+                                <option value="O-Componantes de materia prima, muestras, prototipos_I">Componantes de
+                                    materia prima, muestras, prototipos
+                                </option>
+                                <option
+                                    value="E-Subprocesos de materia prima dentro de SAP (en fase de lanzamientos)_I">
+                                    Subprocesos de materia prima dentro de SAP (en fase de lanzamientos)
+                                </option>
+                                <option
+                                    value="E-Salida de estaciones/ racks / herramentales para actualización y/o reparación_I">
+                                    Salida de estaciones/ racks / herramentales para actualización y/o reparación
+                                </option>
+                                <option value="E-Salida de materia prima/ PT para pruebas con proveedor_I">Salida de
+                                    materia
+                                    prima/ PT para pruebas con proveedor
+                                </option>
+                                <option value="O-Producto PT, muestras, prototipos_I">Producto PT, muestras, prototipos
+                                </option>
+                                <option value="E-Reparacion de equipos computacionales o del área_T">Reparacion de
+                                    equipos
+                                    computacionales o del área
+                                </option>
+                                <option value="O-Cartuchos de tonner_T">Cartuchos de tonner</option>
+                                <option value="E-Equipos de cómputo para préstamo Tetla_T">Equipos de cómputo para
+                                    préstamo
+                                    Tetla
+                                </option>
+                                <option value="O-Sillas para Reparar (comedor)_R">Sillas para Reparar (comedor)</option>
+                                <option value="O-Equipo Mayor para reparar (comedor)_R">Equipo Mayor para reparar
+                                    (comedor)
+                                </option>
+                                <option value="O-Hornos de Microondas a reparación (comedor)_R">Hornos de Microondas a
+                                    reparación (comedor)
+                                </option>
+                                <option value="O-Equipo Mayor a desecho (comedor)_R">Equipo Mayor a desecho (comedor)
+                                </option>
+                            </select>
+
+                            <p id="tipoSalidaP" style="margin-bottom: 10px !important;"></p>
+
+                            <div class="col-12">
+                                <select id="sltRetorno" style="margin-bottom: 15px; margin-top: 15px;">
+                                    <option value="valueR">¿El material retorna?</option>
+                                    <option value="Si">Sí</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+
+                            <div class="col-6 col-12-small">
+                                <p id="fech" name="fech" style="display:none; margin-bottom: 10px !important;">Fecha de
+                                    Retorno</p>
+                                <input class="form-control input-sm" type="datetime-local" name="fechas"
+                                       id="txtFechaRetorno"
+                                       style="display:none;"/>
+                            </div>
                         </div>
+
+                        <hr>
+
+                        <div id="divAgregar" style="margin-top: 10px;">
+                            <img src="lib/assets/img/feliz.png" alt="Agregar" id="btnAgregar" />
+                        </div>
+
 
                         <div class="col-6 col-12-small">
                             <p style="margin-bottom: 10px !important; margin-top: 10px;">Empresa</p>
@@ -391,6 +415,24 @@
         crossorigin="anonymous"></script>
 
 <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Obtener el div existente y el div para agregar
+        const divExistente = document.getElementById("fila");
+        const divAgregar = document.getElementById("divAgregar");
+
+        // Obtener la imagen de "+"
+        const btnAgregar = document.getElementById("btnAgregar");
+
+        // Manejar el evento de clic en la imagen de "+"
+        btnAgregar.addEventListener("click", function () {
+            // Clonar el div existente para agregar uno nuevo
+            const nuevoDiv = divExistente.cloneNode(true);
+
+            // Agregar el nuevo div justo antes del div para agregar
+            divAgregar.parentNode.insertBefore(nuevoDiv, divAgregar);
+        });
+    });
 
     document.getElementById("txtCorreoEncargado").addEventListener("blur", function () {
         var correoEncargado = this.value;
