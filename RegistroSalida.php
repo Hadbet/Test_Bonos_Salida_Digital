@@ -414,7 +414,7 @@
 
 <script>
 
-    let contador = 1;
+    let contador = 0;
 
     function agregarDiv() {
         // Obtener el div original
