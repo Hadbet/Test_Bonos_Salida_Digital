@@ -1,0 +1,67 @@
+        
+        #buttons {
+          text-align: center;
+        }
+        
+        .btn {
+          border-radius: 5px;
+          color: #fff;
+          display: inline-block;
+          font-size: 24px;
+          padding: 18px 24px;
+          text-decoration: none;
+        }
+        
+        .btnRed {
+          background-color: #e71d36;
+          box-shadow: 0 5px 0 0 #a61224;
+        }
+         
+        .btnRed:hover{
+          background-color: #ec4b5f;
+        }
+        
+        .btnBlue {
+          background-color: #30A9DE;
+          box-shadow: 0 5px 0 0 #1b7ca7;
+        }
+        
+        .btnBlue:hover {
+          background-color: #5cbbe5;
+        }
+        
+        .btnYellow {
+          background-color: #f8ca00;
+          box-shadow: 0 5px 0 0 #f8a100;
+        }
+        
+        .btnYellow:hover {
+          background-color: #ffdd46;
+        }
+        
+        .btnPurple {
+          background-color: #9055A2;
+          box-shadow: 0 5px 0 0 #633b70;
+        }
+        
+        .btnPurple:hover {
+          background-color: #b185bf; 
+        }
+        
+        .btnOrange {
+          background-color: #e3632d;
+          box-shadow: 0 5px 0 0 #ad4317;
+        }
+        
+        .btnOrange:hover {
+          background-color: #ec9571;
+        }
+        
+        .btnGreen {
+          background-color: #79bd9a;
+          box-shadow: 0 5px 0 0 #4d9c74;
+        }
+        
+        .btnGreen:hover {
+          background-color: #acd6c1;
+        }
