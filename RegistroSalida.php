@@ -144,6 +144,8 @@
                 ingresar un proxy de tu gerente como un coordinador o supervisor, <span style='color:red;'>solo en caso de que no se encuentre presente tu gerente.</span>
             </p>
 
+            <label for="miCheckbox">Multibono</label>
+            <input type="checkbox" id="miCheckbox">
 
             <form method="post">
                 <div class="row">
@@ -332,7 +334,8 @@
                         </div>
                     </div>
                     <hr>
-                    <button onclick="agregarDiv()">Agregar</button>
+
+                    <button id="btnAgregarDiv" style="display: none" onclick="agregarDiv()">Agregar</button>
 
                     <div class="col-6 col-12-small">
                         <p style="margin-bottom: 10px !important; margin-top: 10px;">Empresa</p>
@@ -413,6 +416,16 @@
         crossorigin="anonymous"></script>
 
 <script>
+
+    const checkbox = document.getElementById('miCheckbox');
+
+    checkbox.addEventListener('change', function() {
+        if (checkbox.checked) {
+            document.getElementById("btnAgregarDiv").style.display='block'
+        } else {
+            document.getElementById("btnAgregarDiv").style.display='none'
+        }
+    });
 
     let contador = 0;
 
