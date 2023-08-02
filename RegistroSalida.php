@@ -144,8 +144,12 @@
                 ingresar un proxy de tu gerente como un coordinador o supervisor, <span style='color:red;'>solo en caso de que no se encuentre presente tu gerente.</span>
             </p>
 
-            <label for="miCheckbox">Multibono</label>
-            <input type="checkbox" id="miCheckbox">
+            <div class="row">
+                <div class="col-6 col-12-small">
+                    <input type="checkbox" id="chtMultibono" name="demo-copy">
+                    <label for="demo-copy">Email me a copy</label>
+                </div>
+            </div>
 
             <form method="post">
                 <div class="row">
@@ -170,19 +174,18 @@
                     </div>
 
 
-
                     <div id="fila" style="">
                         <hr>
                         <div class="col-12 col-12-small">
                             <p style="margin-bottom: 10px !important;">Descripción / Modelo / No.Serie</p>
                             <input type="text" placeholder="Descripción" name="Descripcion" id="txtDescripcion"
-                                   />
+                            />
                         </div>
 
                         <div class="col-6 col-12-small" style="float: left; width: 430px;">
                             <p style="margin-bottom: 10px !important; margin-top: 10px;">Cantidad</p>
                             <input type="number" placeholder="Cantidad" name="Cantidad" id="txtCantidad" min="1"
-                                   pattern="^[0-9]+" />
+                                   pattern="^[0-9]+"/>
                         </div>
 
                         <div class="col-6 col-12-small" style="float: right; width: 430px;">
@@ -345,13 +348,13 @@
                     <div class="col-6 col-12-small">
                         <p style="margin-bottom: 10px !important; margin-top: 10px;">Dirección del destino</p>
                         <input type="text" placeholder="Dirección destino" name="Direccion" id="txtDireccion"
-                               />
+                        />
                     </div>
 
                     <div class="col-6 col-12-small">
                         <p style="margin-bottom: 10px !important; margin-top: 10px;">Correo de tu encargado</p>
                         <input type="text" placeholder="Dirección destino" name="Correo" id="txtCorreoEncargado"
-                               />
+                        />
                     </div>
 
                 </div>
@@ -359,7 +362,7 @@
                 <div class="col-12">
 							<textarea style="resize:none; margin-bottom: 15px; margin-top: 15px;" placeholder="Causa"
                                       rows="6" name="causa" id="txtCausa"
-                                      ></textarea>
+                            ></textarea>
                 </div>
 
                 <div class="col-12">
@@ -417,13 +420,13 @@
 
 <script>
 
-    const checkbox = document.getElementById('miCheckbox');
+    const checkbox = document.getElementById('chtMultibono');
 
-    checkbox.addEventListener('change', function() {
+    checkbox.addEventListener('change', function () {
         if (checkbox.checked) {
-            document.getElementById("btnAgregarDiv").style.display='block'
+            document.getElementById("btnAgregarDiv").style.display = 'block'
         } else {
-            document.getElementById("btnAgregarDiv").style.display='none'
+            document.getElementById("btnAgregarDiv").style.display = 'none'
         }
     });
 
