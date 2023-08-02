@@ -144,7 +144,7 @@
                 ingresar un proxy de tu gerente como un coordinador o supervisor, <span style='color:red;'>solo en caso de que no se encuentre presente tu gerente.</span>
             </p>
 
-            <div class="row">
+            <div class="row gtr-uniform">
                 <div class="col-6 col-12-small">
                     <input type="checkbox" id="chtMultibono" name="demo-copy">
                     <label for="demo-copy">Email me a copy</label>
