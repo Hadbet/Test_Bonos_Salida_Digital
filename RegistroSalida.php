@@ -371,8 +371,8 @@
 							<textarea placeholder="Comentarios" rows="6" style="resize:none" name="Comentarios"
                                       id="txtComentarios"></textarea>
                 </div>
-                <div class="field" style="margin: 0 auto;">
-                    <label style="text-align: center;color: white;" for="files">Sube la imagen de tu material</label>
+                <div class="field" id="seccionImagen" style="margin: 0 auto;">
+                    <p style="text-align: center;color: white;" for="files">Sube la imagen de tu material</p>
                     <p></p>
                     <input type="file" id="files" accept="image/*" onchange="preview_image()">
                     <br><br>
@@ -380,7 +380,7 @@
                 </div>
 
                 <div class="field" id="seccionPDF" style="margin: 0 auto;display: none">
-                    <label style="text-align: center;color: white;" for="filesPDF">Sube la imagen de tu material</label>
+                    <p style="text-align: center;color: white;" for="filesPDF">Sube la imagen de tu material</p>
                     <p></p>
                     <input type="file" id="filesPDF" accept="pdf/*">
                 </div>
@@ -433,10 +433,12 @@
     checkbox.addEventListener('change', function() {
         if (checkbox.checked) {
             document.getElementById('btnAgregarDiv').style.display = 'block';
+            document.getElementById('seccionImagen').style.display = 'none';
             document.getElementById('seccionPDF').style.display = 'block'; // Mostrar el botón cuando el checkbox está marcado
         } else {
             document.getElementById('btnAgregarDiv').style.display = 'none';
-            document.getElementById('seccionPDF').style.display = 'block'; // Ocultar el botón cuando el checkbox está desmarcado
+            document.getElementById('seccionImagen').style.display = 'block';
+            document.getElementById('seccionPDF').style.display = 'none'; // Ocultar el botón cuando el checkbox está desmarcado
         }
     });
 
