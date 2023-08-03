@@ -171,7 +171,9 @@ function enviar(foto) {
         var tipoBono = [];
         var fechaRetorno = [];
 
-        for (var i = 0; i > contador; i++) {
+        contador=contador+1;
+
+        for (var i = 0; i < contador; i++) {
             if (i==0){
                 descripcion.push(document.getElementById('txtDescripcion').value);
                 cantidad.push(document.getElementById('txtCantidad').value);
