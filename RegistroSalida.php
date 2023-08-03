@@ -379,6 +379,12 @@
                     <center><img style="display: none;" id="imagenPrevisualizacion" height="250px"></center>
                 </div>
 
+                <div class="field" id="seccionPDF" style="margin: 0 auto;display: none">
+                    <label style="text-align: center;color: white;" for="filesPDF">Sube la imagen de tu material</label>
+                    <p></p>
+                    <input type="file" id="filesPDF" accept="pdf/*">
+                </div>
+
                 <img src="" style="display: none;" id="new">
                 <img src="" style="display: none;" id="old">
                 <div class="col-12" style="margin-top: 8%;">
@@ -426,9 +432,11 @@
 
     checkbox.addEventListener('change', function() {
         if (checkbox.checked) {
-            document.getElementById('btnAgregarDiv').style.display = 'block'; // Mostrar el botón cuando el checkbox está marcado
+            document.getElementById('btnAgregarDiv').style.display = 'block';
+            document.getElementById('seccionPDF').style.display = 'block'; // Mostrar el botón cuando el checkbox está marcado
         } else {
-            document.getElementById('btnAgregarDiv').style.display = 'none'; // Ocultar el botón cuando el checkbox está desmarcado
+            document.getElementById('btnAgregarDiv').style.display = 'none';
+            document.getElementById('seccionPDF').style.display = 'block'; // Ocultar el botón cuando el checkbox está desmarcado
         }
     });
 
