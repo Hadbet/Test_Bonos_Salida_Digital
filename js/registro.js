@@ -171,7 +171,7 @@ function enviar(foto) {
         var tipoBono = [];
         var fechaRetorno = [];
 
-        for (var i = 0; i >= contador; i++) {
+        for (var i = 0; i < contador; i++) {
             descripcion.push(document.getElementById('txtDescripcion'+i).trim());
             cantidad.push(document.getElementById('txtCantidad'+i).trim());
             unidadMedida.push(document.getElementById('txtUm'+i).trim());
