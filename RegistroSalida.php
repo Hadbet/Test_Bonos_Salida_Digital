@@ -424,9 +424,9 @@
 
     checkbox.addEventListener('change', function() {
         if (checkbox.checked) {
-            document.getElementById('btnAgregar').style.display = 'block'; // Mostrar el botón cuando el checkbox está marcado
+            document.getElementById('btnAgregarDiv').style.display = 'block'; // Mostrar el botón cuando el checkbox está marcado
         } else {
-            document.getElementById('btnAgregar').style.display = 'none'; // Ocultar el botón cuando el checkbox está desmarcado
+            document.getElementById('btnAgregarDiv').style.display = 'none'; // Ocultar el botón cuando el checkbox está desmarcado
         }
     });
 
@@ -473,7 +473,7 @@
         divOriginal.parentNode.insertBefore(nuevoDiv, divOriginal.nextSibling);
     }
 
-    const btnAgregar = document.getElementById("btnAgregar");
+    const btnAgregar = document.getElementById("btnAgregarDiv");
     btnAgregar.addEventListener("click", function (event) {
         event.preventDefault(); // Evitar el submit del formulario
         agregarDiv(); // Llamar a la función agregarDiv()
