@@ -372,7 +372,7 @@
                                       id="txtComentarios"></textarea>
                 </div>
                 <div class="field" id="seccionImagen" style="margin: 0 auto;">
-                    <p style="text-align: center;color: white;" for="files">Sube la imagen de tu material</p>
+                    <p style="text-align: center;" for="files">Sube la imagen de tu material</p>
                     <p></p>
                     <input type="file" id="files" accept="image/*" onchange="preview_image()">
                     <br><br>
@@ -380,7 +380,7 @@
                 </div>
 
                 <div class="field" id="seccionPDF" style="margin: 0 auto;display: none">
-                    <p style="text-align: center;color: white;" for="filesPDF">Sube la imagen de tu material</p>
+                    <p style="text-align: center;" for="filesPDF">Sube la imagen de tu material</p>
                     <p></p>
                     <input type="file" id="filesPDF" accept="pdf/*">
                 </div>
