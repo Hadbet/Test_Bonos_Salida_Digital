@@ -173,17 +173,17 @@ function enviar(foto) {
 
         for (var i = 0; i < contador; i++) {
             if (i==0){
-                descripcion.push(document.getElementById('txtDescripcion'));
-                cantidad.push(document.getElementById('txtCantidad'));
-                unidadMedida.push(document.getElementById('txtUm'));
-                tipoBono.push(document.getElementById('sltTipo'));
-                fechaRetorno.push(document.getElementById('txtFechaRetorno'));
+                descripcion.push(document.getElementById('txtDescripcion').value());
+                cantidad.push(document.getElementById('txtCantidad').value());
+                unidadMedida.push(document.getElementById('txtUm').value());
+                tipoBono.push(document.getElementById('sltTipo').value());
+                fechaRetorno.push(document.getElementById('txtFechaRetorno').value());
             }else{
-                descripcion.push(document.getElementById('txtDescripcion'+i).trim());
-                cantidad.push(document.getElementById('txtCantidad'+i).trim());
-                unidadMedida.push(document.getElementById('txtUm'+i).trim());
-                tipoBono.push(document.getElementById('sltTipo'+i).trim());
-                fechaRetorno.push(document.getElementById('txtFechaRetorno'+i).trim());
+                descripcion.push(document.getElementById('txtDescripcion'+i).value().trim());
+                cantidad.push(document.getElementById('txtCantidad'+i).value().trim());
+                unidadMedida.push(document.getElementById('txtUm'+i).value().trim());
+                tipoBono.push(document.getElementById('sltTipo'+i).value().trim());
+                fechaRetorno.push(document.getElementById('txtFechaRetorno'+i).value().trim());
             }
 
         }
