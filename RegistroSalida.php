@@ -145,7 +145,7 @@
             </p>
 
             <div class="row gtr-uniform">
-                <div class="col-6 col-12-small">
+                <div class="col-12 col-12-small">
                     <input type="checkbox" id="chtMultibono" name="demo-copy">
                     <label for="demo-copy">Email me a copy</label>
                 </div>
