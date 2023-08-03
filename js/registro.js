@@ -1,4 +1,3 @@
-
 const $seleccionArchivos = document.querySelector("#files"),
     $imagenPrevisualizacion = document.querySelector("#imagenPrevisualizacion");
 
@@ -83,7 +82,6 @@ async function process_image(file, min_image_size = 300) {
 }
 
 
-
 /*- NOTE: USE THIS JUST TO GET PROCESSED RESULTS -*/
 async function preview_image() {
     const file = document.querySelector("#files");
@@ -165,222 +163,257 @@ function test3() {
 
 function enviar(foto) {
 
-    var email = document.getElementById('txtEmail');
-    var nomina = document.getElementById('txtNomina');
-    var solicitante = document.getElementById('txtSolicitante');
-    var descripcion = document.getElementById('txtDescripcion');
-    var cantidad = document.getElementById('txtCantidad');
-    var um = document.getElementById('txtUm');
-    var empresa = document.getElementById('txtEmpresa');
-    var direccion = document.getElementById('txtDireccion');
-    var tipo = document.getElementById('sltTipo');
-    //var tipoBono = document.getElementById('sltTipoBono');
-    var area = document.getElementById('sltArea');
-    var retorno = document.getElementById('sltRetorno');
-    var fechaRetorno = document.getElementById('txtFechaRetorno');
-    var causa = document.getElementById('txtCausa');
-    var comentarios = document.getElementById('txtComentarios');
-    var correoEncargado = document.getElementById('txtCorreoEncargado');
-    var categoria = "";
-    const correo = correoEncargado.value;
-    const partes = correo.split("@");
-    const nombreCompleto = partes[0].replace(/\b(\w)/g, function (match, primeraLetra) { return primeraLetra.toUpperCase(); }).replace(".", " ");
+    if (banderaTipo == '1' && foto == '2') {
 
+        var descripcion = [];
+        var cantidad = [];
+        var unidadMedida = [];
+        var tipoBono = [];
+        var fechaRetorno = [];
 
-    if (correoEncargado.value.indexOf("@grammer.com") !== -1) {
+        for (var i = 0; i == contador; i++) {
+            descripcion.push(document.getElementById('txtDescripcion'+i).trim());
+            cantidad.push(document.getElementById('txtCantidad'+i).trim());
+            unidadMedida.push(document.getElementById('txtUm'+i).trim());
+            tipoBono.push(document.getElementById('sltTipo'+i).trim());
+            fechaRetorno.push(document.getElementById('txtFechaRetorno'+i).trim());
+        }
+
+        console.log(descripcion);
+        console.log(cantidad);
+        console.log(unidadMedida);
+        console.log(tipoBono);
+        console.log(fechaRetorno);
+
     } else {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...', showConfirmButton: false, input: 'none',
-            text: 'El correo ingresado del encargado es incorrecto no pertenece al dominio de grammer "@grammer.com"'
-        })
-        correoEncargado = '';
-    }
+/*
+        var email = document.getElementById('txtEmail');
+        var nomina = document.getElementById('txtNomina');
+        var solicitante = document.getElementById('txtSolicitante');
+        var descripcion = document.getElementById('txtDescripcion');
+        var cantidad = document.getElementById('txtCantidad');
+        var um = document.getElementById('txtUm');
+        var empresa = document.getElementById('txtEmpresa');
+        var direccion = document.getElementById('txtDireccion');
+        var tipo = document.getElementById('sltTipo');
+        //var tipoBono = document.getElementById('sltTipoBono');
+        var area = document.getElementById('sltArea');
+        var retorno = document.getElementById('sltRetorno');
+        var fechaRetorno = document.getElementById('txtFechaRetorno');
+        var causa = document.getElementById('txtCausa');
+        var comentarios = document.getElementById('txtComentarios');
+        var correoEncargado = document.getElementById('txtCorreoEncargado');
+        var categoria = "";
+        const correo = correoEncargado.value;
+        const partes = correo.split("@");
+        const nombreCompleto = partes[0].replace(/\b(\w)/g, function (match, primeraLetra) {
+            return primeraLetra.toUpperCase();
+        }).replace(".", " ");
 
 
-    if (retorno.value == "No") {
-        fechaRetorno = "0";
-    } else {
-        fechaRetorno = fechaRetorno.value;
-    }
-
-    if (comentarios.value == "") {
-        comentarios.value == "Ninguno";
-    }
-
-    const min = 1;
-    const max = 1000000;
-    const randomNum = Math.floor(Math.random() * (max - min + 1) + min);
-
-    if (email.value != "") {
-        if (nomina.value != "") {
-            if (solicitante.value != "") {
-                if (descripcion.value != "") {
-                    if (cantidad.value != "") {
-                        if (um.value != "") {
-                            if (empresa.value != "") {
-                                if (direccion.value != "") {
-                                    if (tipoBonoAux != "") {
-                                        if (retorno.value != "") {
-                                            if (causa.value != "") {
-                                                if (comentarios.value != "") {
-                                                    if (area.value != "") {
-                                                        if (tipo.value != "") {
-                                                            if (foto != "data:,") {
-                                                                var idImagen = nomina.value.toString() + solicitante.value.toString().substring(0, 2) + descripcion.value.toString().substring(0, 2) + cantidad.value + um.value + empresa.value.toString().substring(0, 2) + direccion.value.toString().substring(0, 2) + causa.value.toString().substring(0, 2) + comentarios.value.toString().substring(0, 2) + randomNum;
-
-                                                                document.getElementById('first').style.display = 'none';
-                                                                document.getElementById('carga').style.display = 'block';
-                                                                document.getElementById('carga').innerHTML = '<div class="loading"><center><img src="images/carga.gif" height="350px"><br/>Un momento, por favor...</center></div>';
-
-                                                                const data = new FormData();
-
-                                                                data.append('email', email.value.trim());
-                                                                data.append('nomina', nomina.value.trim());
-                                                                data.append('solicitante', solicitante.value);
-                                                                data.append('descripcion', descripcion.value.replace(/["'\\\/]/g, ''));
-                                                                data.append('cantidad', cantidad.value);
-                                                                data.append('um', um.value);
-                                                                data.append('imagenRegistro', idImagen.replace(/["'\\\/]/g, ''));
-                                                                data.append('empresa', empresa.value.replace(/["'\\\/]/g, ''));
-                                                                data.append('direccion', direccion.value.replace(/["'\\\/]/g, ''));
-                                                                data.append('tipo', tipo.value);
-                                                                data.append('retorno', retorno.value);
-                                                                data.append('fechaRetorno', fechaRetorno);
-                                                                data.append('causa', causa.value.replace(/["'\\\/\n]/g, ''));
-                                                                data.append('comentarios', comentarios.value.replace(/["'\\\/\n]/g, ''));
-                                                                data.append('bandera', 1);
-                                                                data.append('tipoBono', tipoBonoAux);
-                                                                data.append('area', area.value);
-                                                                data.append('imagen', foto);
-                                                                data.append('correoEncargado', nombreCompleto);
-
-                                                                //console.log("DaoRegistro.php/?email="+email.value+"&nomina="+nomina.value+"&solicitante="+solicitante.value+"&descripcion="+descripcion.value+"&cantidad="+cantidad.value+"&um="+um.value+"&imagenRegistro="+idImagen+"&empresa="+empresa.value+"&direccion="+direccion.value+"&tipo="+tipo.value+"&retorno="+retorno.value+"&fechaRetorno="+fechaRetorno.value+"&causa="+causa.value+"&comentarios="+comentarios.value+"&bandera=1"+"&tipoBono="+tipoBono.value+"&area="+area.value+"&correoEncargado="+correoEncargado.value);
+        if (correoEncargado.value.indexOf("@grammer.com") !== -1) {
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...', showConfirmButton: false, input: 'none',
+                text: 'El correo ingresado del encargado es incorrecto no pertenece al dominio de grammer "@grammer.com"'
+            })
+            correoEncargado = '';
+        }
 
 
-                                                                fetch('dao/DaoRegistro.php', {
-                                                                    method: 'POST',
-                                                                    body: data
-                                                                })
-                                                                    .then(function (response) {
-                                                                        if (response.ok) {
-                                                                            enviarCorreo(email.value, nomina.value, solicitante.value, descripcion.value, cantidad.value, um.value, empresa.value, tipo.value, retorno.value, fechaRetorno.value, causa.value, comentarios.value, idImagen, direccion.value, correoEncargado.value, area.value, tipoBonoAux);
-                                                                        } else {
-                                                                            throw "Error en la llamada Ajax";
-                                                                        }
+        if (retorno.value == "No") {
+            fechaRetorno = "0";
+        } else {
+            fechaRetorno = fechaRetorno.value;
+        }
 
+        if (comentarios.value == "") {
+            comentarios.value == "Ninguno";
+        }
+
+        const min = 1;
+        const max = 1000000;
+        const randomNum = Math.floor(Math.random() * (max - min + 1) + min);
+
+        if (email.value != "") {
+            if (nomina.value != "") {
+                if (solicitante.value != "") {
+                    if (descripcion.value != "") {
+                        if (cantidad.value != "") {
+                            if (um.value != "") {
+                                if (empresa.value != "") {
+                                    if (direccion.value != "") {
+                                        if (tipoBonoAux != "") {
+                                            if (retorno.value != "") {
+                                                if (causa.value != "") {
+                                                    if (comentarios.value != "") {
+                                                        if (area.value != "") {
+                                                            if (tipo.value != "") {
+                                                                if (foto != "data:,") {
+                                                                    var idImagen = nomina.value.toString() + solicitante.value.toString().substring(0, 2) + descripcion.value.toString().substring(0, 2) + cantidad.value + um.value + empresa.value.toString().substring(0, 2) + direccion.value.toString().substring(0, 2) + causa.value.toString().substring(0, 2) + comentarios.value.toString().substring(0, 2) + randomNum;
+
+                                                                    document.getElementById('first').style.display = 'none';
+                                                                    document.getElementById('carga').style.display = 'block';
+                                                                    document.getElementById('carga').innerHTML = '<div class="loading"><center><img src="images/carga.gif" height="350px"><br/>Un momento, por favor...</center></div>';
+
+                                                                    const data = new FormData();
+
+                                                                    data.append('email', email.value.trim());
+                                                                    data.append('nomina', nomina.value.trim());
+                                                                    data.append('solicitante', solicitante.value);
+                                                                    data.append('descripcion', descripcion.value.replace(/["'\\\/]/g, ''));
+                                                                    data.append('cantidad', cantidad.value);
+                                                                    data.append('um', um.value);
+                                                                    data.append('imagenRegistro', idImagen.replace(/["'\\\/]/g, ''));
+                                                                    data.append('empresa', empresa.value.replace(/["'\\\/]/g, ''));
+                                                                    data.append('direccion', direccion.value.replace(/["'\\\/]/g, ''));
+                                                                    data.append('tipo', tipo.value);
+                                                                    data.append('retorno', retorno.value);
+                                                                    data.append('fechaRetorno', fechaRetorno);
+                                                                    data.append('causa', causa.value.replace(/["'\\\/\n]/g, ''));
+                                                                    data.append('comentarios', comentarios.value.replace(/["'\\\/\n]/g, ''));
+                                                                    data.append('bandera', 1);
+                                                                    data.append('tipoBono', tipoBonoAux);
+                                                                    data.append('area', area.value);
+                                                                    data.append('imagen', foto);
+                                                                    data.append('correoEncargado', nombreCompleto);
+
+                                                                    //console.log("DaoRegistro.php/?email="+email.value+"&nomina="+nomina.value+"&solicitante="+solicitante.value+"&descripcion="+descripcion.value+"&cantidad="+cantidad.value+"&um="+um.value+"&imagenRegistro="+idImagen+"&empresa="+empresa.value+"&direccion="+direccion.value+"&tipo="+tipo.value+"&retorno="+retorno.value+"&fechaRetorno="+fechaRetorno.value+"&causa="+causa.value+"&comentarios="+comentarios.value+"&bandera=1"+"&tipoBono="+tipoBono.value+"&area="+area.value+"&correoEncargado="+correoEncargado.value);
+
+
+                                                                    fetch('dao/DaoRegistro.php', {
+                                                                        method: 'POST',
+                                                                        body: data
                                                                     })
-                                                                    .then(function (texto) {
-                                                                        console.log(texto);
+                                                                        .then(function (response) {
+                                                                            if (response.ok) {
+                                                                                enviarCorreo(email.value, nomina.value, solicitante.value, descripcion.value, cantidad.value, um.value, empresa.value, tipo.value, retorno.value, fechaRetorno.value, causa.value, comentarios.value, idImagen, direccion.value, correoEncargado.value, area.value, tipoBonoAux);
+                                                                            } else {
+                                                                                throw "Error en la llamada Ajax";
+                                                                            }
+
+                                                                        })
+                                                                        .then(function (texto) {
+                                                                            console.log(texto);
+                                                                        })
+                                                                        .catch(function (err) {
+                                                                            console.log(err);
+                                                                        });
+                                                                } else {
+                                                                    Swal.fire({
+                                                                        icon: 'error',
+                                                                        title: 'Oops...',
+                                                                        showConfirmButton: false,
+                                                                        input: 'none',
+                                                                        text: 'Falta ingresar fotografía'
                                                                     })
-                                                                    .catch(function (err) {
-                                                                        console.log(err);
-                                                                    });
+                                                                }
                                                             } else {
                                                                 Swal.fire({
                                                                     icon: 'error',
-                                                                    title: 'Oops...', showConfirmButton: false, input: 'none',
-                                                                    text: 'Falta ingresar fotografía'
+                                                                    title: 'Oops...',
+                                                                    showConfirmButton: false,
+                                                                    input: 'none',
+                                                                    text: 'Seleccione el tipo de bono'
                                                                 })
                                                             }
                                                         } else {
                                                             Swal.fire({
                                                                 icon: 'error',
-                                                                title: 'Oops...', showConfirmButton: false, input: 'none',
-                                                                text: 'Seleccione el tipo de bono'
+                                                                title: 'Oops...',
+                                                                showConfirmButton: false,
+                                                                input: 'none',
+                                                                text: 'Seleccione el área'
                                                             })
                                                         }
                                                     } else {
                                                         Swal.fire({
                                                             icon: 'error',
                                                             title: 'Oops...', showConfirmButton: false, input: 'none',
-                                                            text: 'Seleccione el área'
+                                                            text: 'Ingrese los comentarios'
                                                         })
                                                     }
                                                 } else {
                                                     Swal.fire({
                                                         icon: 'error',
                                                         title: 'Oops...', showConfirmButton: false, input: 'none',
-                                                        text: 'Ingrese los comentarios'
+                                                        text: 'Ingrese la causa'
                                                     })
                                                 }
                                             } else {
                                                 Swal.fire({
                                                     icon: 'error',
                                                     title: 'Oops...', showConfirmButton: false, input: 'none',
-                                                    text: 'Ingrese la causa'
+                                                    text: 'Ingrese el tipo de retorno'
                                                 })
                                             }
                                         } else {
                                             Swal.fire({
                                                 icon: 'error',
                                                 title: 'Oops...', showConfirmButton: false, input: 'none',
-                                                text: 'Ingrese el tipo de retorno'
+                                                text: 'Ingrese el tipo'
                                             })
                                         }
                                     } else {
                                         Swal.fire({
                                             icon: 'error',
                                             title: 'Oops...', showConfirmButton: false, input: 'none',
-                                            text: 'Ingrese el tipo'
+                                            text: 'Ingrese la dirección'
                                         })
                                     }
                                 } else {
                                     Swal.fire({
                                         icon: 'error',
                                         title: 'Oops...', showConfirmButton: false, input: 'none',
-                                        text: 'Ingrese la dirección'
+                                        text: 'Ingrese la empresa'
                                     })
                                 }
                             } else {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...', showConfirmButton: false, input: 'none',
-                                    text: 'Ingrese la empresa'
+                                    text: 'Ingrese la unidad de medida'
                                 })
                             }
                         } else {
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Oops...', showConfirmButton: false, input: 'none',
-                                text: 'Ingrese la unidad de medida'
+                                text: 'Ingrese la cantidad'
                             })
                         }
                     } else {
                         Swal.fire({
                             icon: 'error',
                             title: 'Oops...', showConfirmButton: false, input: 'none',
-                            text: 'Ingrese la cantidad'
+                            text: 'Ingrese la descripción'
                         })
                     }
                 } else {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...', showConfirmButton: false, input: 'none',
-                        text: 'Ingrese la descripción'
+                        text: 'Ingrese el solicitante'
                     })
                 }
             } else {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...', showConfirmButton: false, input: 'none',
-                    text: 'Ingrese el solicitante'
+                    text: 'Ingrese la nómina'
                 })
             }
         } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...', showConfirmButton: false, input: 'none',
-                text: 'Ingrese la nómina'
+                text: 'Falta ingresar el nombre de la persona de emergencia'
             })
         }
-    } else {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...', showConfirmButton: false, input: 'none',
-            text: 'Falta ingresar el nombre de la persona de emergencia'
-        })
+*/
     }
+
 }
 
 function enviarVigilante(img, estatus) {
@@ -422,7 +455,7 @@ function enviarVigilante(img, estatus) {
                             })
                                 .then(function (response) {
                                     if (response.ok) {
-                                        enviarCorreoSalida(estatus, "", nombreVigilante.value, transportista.value, placas.value, portador.value,correoTransportista.value);
+                                        enviarCorreoSalida(estatus, "", nombreVigilante.value, transportista.value, placas.value, portador.value, correoTransportista.value);
                                     } else {
                                         throw "Error en la llamada Ajax";
                                     }
@@ -486,7 +519,7 @@ function enviarVigilante(img, estatus) {
 
 }
 
-function enviarCorreoSalida(estatus, retroalimentacion, nombreVigilante, lineaTransportista, placas, nombreOperador,correoTransportista) {
+function enviarCorreoSalida(estatus, retroalimentacion, nombreVigilante, lineaTransportista, placas, nombreOperador, correoTransportista) {
 
     const data = new FormData();
 
@@ -598,10 +631,10 @@ function enviarEntrega(img) {
 
     var nombreVigilante = document.getElementById('txtNombreVigilante');
     var causa = document.getElementById('txtCausaAux');
-    
+
     if (img != "data:,") {
-        
-    }else{
+
+    } else {
         Swal.fire({
             icon: 'info',
             title: 'Se enviara la actualización sin la imagen', showConfirmButton: false, input: 'none',
@@ -609,52 +642,52 @@ function enviarEntrega(img) {
         });
         var EstatusImagen = '2';
     }
-    
-        if (nombreVigilante.value != "") {
 
-            document.getElementById('first').style.display = 'none';
-            document.getElementById('carga').style.display = 'block';
-            document.getElementById('carga').innerHTML = '<div class="loading"><center><img src="images/carga.gif" height="350px"><br/>Un momento, por favor...</center></div>';
+    if (nombreVigilante.value != "") {
 
-            document.getElementById('botonSalir').style.display = 'none';
-            document.getElementById('botonConfirmar').style.display = 'none';
+        document.getElementById('first').style.display = 'none';
+        document.getElementById('carga').style.display = 'block';
+        document.getElementById('carga').innerHTML = '<div class="loading"><center><img src="images/carga.gif" height="350px"><br/>Un momento, por favor...</center></div>';
 
-            const data = new FormData();
+        document.getElementById('botonSalir').style.display = 'none';
+        document.getElementById('botonConfirmar').style.display = 'none';
 
-            data.append('idImagenEntrada', imagenRegistro.replace(/["'\\\/]/g, ''));
-            data.append('imagenEntrada', img);
-            data.append('nombreVigilante', nombreVigilante.value);
-            data.append('idBitacora', idBitacora);
-            data.append('bandera', banderaAuxRechazo);
-            data.append('causa', causa.value);
-            data.append('estatusImagen', EstatusImagen);
+        const data = new FormData();
 
-            if (banderaAuxRechazo == 2) {
-                data.append('fechaRetorno', document.getElementById("fechaRetronoRechazo").value);
-            }
+        data.append('idImagenEntrada', imagenRegistro.replace(/["'\\\/]/g, ''));
+        data.append('imagenEntrada', img);
+        data.append('nombreVigilante', nombreVigilante.value);
+        data.append('idBitacora', idBitacora);
+        data.append('bandera', banderaAuxRechazo);
+        data.append('causa', causa.value);
+        data.append('estatusImagen', EstatusImagen);
 
-
-            fetch('dao/DaoRegistroEntrega.php', {
-                method: 'POST',
-                body: data
-            })
-                .then(function (response) {
-                    if (response.ok) {
-                        enviarCorreoEntrega(causa.value);
-                    } else {
-                        throw "Error en la llamada Ajax";
-                    }
-
-                })
-                .then(function (texto) {
-                    console.log(texto);
-                })
-                .catch(function (err) {
-                    console.log(err);
-                });
-        } else {
-            alert("Falta ingresar su nombre");
+        if (banderaAuxRechazo == 2) {
+            data.append('fechaRetorno', document.getElementById("fechaRetronoRechazo").value);
         }
+
+
+        fetch('dao/DaoRegistroEntrega.php', {
+            method: 'POST',
+            body: data
+        })
+            .then(function (response) {
+                if (response.ok) {
+                    enviarCorreoEntrega(causa.value);
+                } else {
+                    throw "Error en la llamada Ajax";
+                }
+
+            })
+            .then(function (texto) {
+                console.log(texto);
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+    } else {
+        alert("Falta ingresar su nombre");
+    }
 }
 
 function enviarCorreoEntrega(causa) {

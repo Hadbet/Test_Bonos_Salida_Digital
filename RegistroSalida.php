@@ -199,7 +199,7 @@
                                 <option value="Kilogramos">Kilogramos</option>
                                 <option value="Litros">Litros</option>
                                 <option value="Libras">Libras</option>
-                                <option value="Libras">Centímetros</option>
+                                <option value="Centimetros">Centímetros</option>
                                 <option value="Metros">Metros</option>
                                 <option value="Gramos">Gramos</option>
                                 <option value="Onzas">Onzas</option>
@@ -372,7 +372,7 @@
                                       id="txtComentarios"></textarea>
                 </div>
                 <div class="field" id="seccionImagen" style="margin: 0 auto;">
-                    <p style="text-align: center;" for="files">Sube la imagen de tu material</p>
+                    <p style="text-align: center;margin-bottom: 5px !important;margin-top: 40px;" for="files">Sube la imagen de tu material</p>
                     <p></p>
                     <input type="file" id="files" accept="image/*" onchange="preview_image()">
                     <br><br>
@@ -380,16 +380,23 @@
                 </div>
 
                 <div class="field" id="seccionPDF" style="margin: 0 auto;display: none">
-                    <p style="text-align: center;" for="filesPDF">Sube la imagen de tu material</p>
+                    <p style="text-align: center;margin-bottom: 5px !important;margin-top: 40px;" for="filesPDF">Sube el PDF de tu material</p>
                     <p></p>
                     <input type="file" id="filesPDF" accept="pdf/*">
                 </div>
 
                 <img src="" style="display: none;" id="new">
                 <img src="" style="display: none;" id="old">
-                <div class="col-12" style="margin-top: 8%;">
+
+                <div class="col-12" style="margin-top: 8%;" id="seccionBtnConfirmar">
                     <ul class="actions special">
                         <li><a id="guardarRegistro" onclick="test();" class="btn btnGreen">Confirmar salida</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12" style="margin-top: 8%;" id="seccionBtnConfirmarMulti">
+                    <ul class="actions special">
+                        <li><a id="guardarRegistroMulti" onclick="enviar('2')" class="btn btnGreen">Confirmar salida</a></li>
                     </ul>
                 </div>
 
@@ -427,16 +434,22 @@
         crossorigin="anonymous"></script>
 
 <script>
-
+    var banderaTipo = 0;
     const checkbox = document.getElementById('chtMultibono');
 
     checkbox.addEventListener('change', function() {
         if (checkbox.checked) {
+            banderaTipo = 1;
             document.getElementById('btnAgregarDiv').style.display = 'block';
+            document.getElementById('seccionBtnConfirmarMulti').style.display = 'block';
+            document.getElementById('seccionBtnConfirmar').style.display = 'none';
             document.getElementById('seccionImagen').style.display = 'none';
             document.getElementById('seccionPDF').style.display = 'block'; // Mostrar el botón cuando el checkbox está marcado
         } else {
+            banderaTipo = 0;
             document.getElementById('btnAgregarDiv').style.display = 'none';
+            document.getElementById('seccionBtnConfirmarMulti').style.display = 'none';
+            document.getElementById('seccionBtnConfirmar').style.display = 'block';
             document.getElementById('seccionImagen').style.display = 'block';
             document.getElementById('seccionPDF').style.display = 'none'; // Ocultar el botón cuando el checkbox está desmarcado
         }
@@ -612,7 +625,6 @@
     const ayuda = document.querySelector("#sltRetorno");
     ayuda.addEventListener('change', (event) => {
         const ntes = event.target.value;
-
         if (ntes == "Si") {
             $('#txtFechaRetorno').css('display', 'block');
             $('#fech').css('display', 'block');
@@ -624,7 +636,6 @@
             $('#txtFechaRetorno').css('display', 'none');
             $('#fech').css('display', 'none');
         }
-
     });
 
     $.getJSON('https://arketipo.mx/Controlling/BonoSalida/dao/DaoNombre.php?nomina=' + document.getElementById("txtNomina").value, function (data) {
