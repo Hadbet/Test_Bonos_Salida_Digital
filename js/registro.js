@@ -172,11 +172,20 @@ function enviar(foto) {
         var fechaRetorno = [];
 
         for (var i = 0; i < contador; i++) {
-            descripcion.push(document.getElementById('txtDescripcion'+i).trim());
-            cantidad.push(document.getElementById('txtCantidad'+i).trim());
-            unidadMedida.push(document.getElementById('txtUm'+i).trim());
-            tipoBono.push(document.getElementById('sltTipo'+i).trim());
-            fechaRetorno.push(document.getElementById('txtFechaRetorno'+i).trim());
+            if (i==0){
+                descripcion.push(document.getElementById('txtDescripcion').trim());
+                cantidad.push(document.getElementById('txtCantidad').trim());
+                unidadMedida.push(document.getElementById('txtUm').trim());
+                tipoBono.push(document.getElementById('sltTipo').trim());
+                fechaRetorno.push(document.getElementById('txtFechaRetorno').trim());
+            }else{
+                descripcion.push(document.getElementById('txtDescripcion'+i).trim());
+                cantidad.push(document.getElementById('txtCantidad'+i).trim());
+                unidadMedida.push(document.getElementById('txtUm'+i).trim());
+                tipoBono.push(document.getElementById('sltTipo'+i).trim());
+                fechaRetorno.push(document.getElementById('txtFechaRetorno'+i).trim());
+            }
+
         }
 
         console.log(descripcion);
