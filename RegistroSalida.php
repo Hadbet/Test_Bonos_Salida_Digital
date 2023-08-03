@@ -372,7 +372,7 @@
                                       id="txtComentarios"></textarea>
                 </div>
                 <div class="field" style="margin: 0 auto;">
-                    <label style="text-align: center;color: white;">Sube la imagen de tu material</label>
+                    <label style="text-align: center;color: white;" for="files">Sube la imagen de tu material</label>
                     <p></p>
                     <input type="file" id="files" accept="image/*" onchange="preview_image()">
                     <br><br>
