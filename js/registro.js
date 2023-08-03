@@ -173,11 +173,11 @@ function enviar(foto) {
 
         for (var i = 0; i < contador; i++) {
             if (i==0){
-                descripcion.push(document.getElementById('txtDescripcion').trim());
-                cantidad.push(document.getElementById('txtCantidad').trim());
-                unidadMedida.push(document.getElementById('txtUm').trim());
-                tipoBono.push(document.getElementById('sltTipo').trim());
-                fechaRetorno.push(document.getElementById('txtFechaRetorno').trim());
+                descripcion.push(document.getElementById('txtDescripcion'));
+                cantidad.push(document.getElementById('txtCantidad'));
+                unidadMedida.push(document.getElementById('txtUm'));
+                tipoBono.push(document.getElementById('sltTipo'));
+                fechaRetorno.push(document.getElementById('txtFechaRetorno'));
             }else{
                 descripcion.push(document.getElementById('txtDescripcion'+i).trim());
                 cantidad.push(document.getElementById('txtCantidad'+i).trim());
