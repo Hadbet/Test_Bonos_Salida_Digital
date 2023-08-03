@@ -174,6 +174,9 @@
                     </div>
 
 
+                    <button id="btnAgregarDiv" style="display: none">Agregar</button>
+
+
                     <div id="fila" style="">
                         <hr>
                         <div class="col-12 col-12-small">
@@ -338,7 +341,6 @@
                     </div>
                     <hr>
 
-                    <button id="btnAgregarDiv" style="display: none">Agregar</button>
 
                     <div class="col-6 col-12-small">
                         <p style="margin-bottom: 10px !important; margin-top: 10px;">Empresa</p>
