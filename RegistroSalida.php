@@ -421,13 +421,12 @@
 <script>
 
     const checkbox = document.getElementById('chtMultibono');
-    const btnAgregar = document.getElementById('btnAgregar');
 
     checkbox.addEventListener('change', function() {
         if (checkbox.checked) {
-            btnAgregar.style.display = 'block'; // Mostrar el botón cuando el checkbox está marcado
+            document.getElementById('btnAgregar').style.display = 'block'; // Mostrar el botón cuando el checkbox está marcado
         } else {
-            btnAgregar.style.display = 'none'; // Ocultar el botón cuando el checkbox está desmarcado
+            document.getElementById('btnAgregar').style.display = 'none'; // Ocultar el botón cuando el checkbox está desmarcado
         }
     });
 
