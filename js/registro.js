@@ -169,20 +169,34 @@ function enviar(foto) {
         var cantidad = [];
         var unidadMedida = [];
         var tipoBono = [];
+        var tipoBonoAuxMulti;
 
         contador=contador+1;
 
         for (var i = 0; i < contador; i++) {
+
             if (i==0){
+
                 descripcion.push(document.getElementById('txtDescripcion').value);
                 cantidad.push(document.getElementById('txtCantidad').value);
                 unidadMedida.push(document.getElementById('txtUm').value);
                 tipoBono.push(document.getElementById('sltTipo').value);
+
+                if (document.getElementById('sltTipo').value.startsWith("E-")){
+                    tipoBonoAuxMulti = 2;
+                }
+
             }else{
+
                 descripcion.push(document.getElementById('txtDescripcion'+i).value.trim);
                 cantidad.push(document.getElementById('txtCantidad'+i).value.trim());
                 unidadMedida.push(document.getElementById('txtUm'+i).value.trim());
                 tipoBono.push(document.getElementById('sltTipo'+i).value.trim());
+
+                if (document.getElementById('sltTipo'+i).value.startsWith("E-")){
+                    tipoBonoAuxMulti = 2;
+                }
+
             }
 
         }
@@ -191,6 +205,7 @@ function enviar(foto) {
         console.log(cantidad);
         console.log(unidadMedida);
         console.log(tipoBono);
+        console.log(tipoBonoAuxMulti);
 
     } else {
 /*

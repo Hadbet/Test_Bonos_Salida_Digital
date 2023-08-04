@@ -321,26 +321,25 @@
 
                             <p id="tipoSalidaP" style="margin-bottom: 10px !important;"></p>
 
-                            <div class="col-12 col-12-small">
-                                <select id="sltRetorno" style="margin-bottom: 15px; margin-top: 15px;">
-                                    <option value="valueR">¿El material retorna?</option>
-                                    <option value="Si">Sí</option>
-                                    <option value="No">No</option>
-                                </select>
-                            </div>
-
-                            <div class="col-6 col-12-small">
-                                <p id="fech" name="fech" style="display:none; margin-bottom: 10px !important;">Fecha de
-                                    Retorno</p>
-                                <input class="form-control input-sm" type="datetime-local" name="fechas"
-                                       id="txtFechaRetorno"
-                                       style="display:none;"/>
-                            </div>
-
                         </div>
                     </div>
                     <hr>
 
+                    <div class="col-12 col-12-small">
+                        <select id="sltRetorno" style="margin-bottom: 15px; margin-top: 15px;">
+                            <option value="valueR">¿El material retorna?</option>
+                            <option value="Si">Sí</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="col-6 col-12-small">
+                        <p id="fech" name="fech" style="display:none; margin-bottom: 10px !important;">Fecha de
+                            Retorno</p>
+                        <input class="form-control input-sm" type="datetime-local" name="fechas"
+                               id="txtFechaRetorno"
+                               style="display:none;"/>
+                    </div>
 
                     <div class="col-6 col-12-small">
                         <p style="margin-bottom: 10px !important; margin-top: 10px;">Empresa</p>
@@ -372,7 +371,8 @@
                                       id="txtComentarios"></textarea>
                 </div>
                 <div class="field" id="seccionImagen" style="margin: 0 auto;">
-                    <p style="text-align: center;margin-bottom: 5px !important;margin-top: 40px;" for="files">Sube la imagen de tu material</p>
+                    <p style="text-align: center;margin-bottom: 5px !important;margin-top: 40px;" for="files">Sube la
+                        imagen de tu material</p>
                     <p></p>
                     <input type="file" id="files" accept="image/*" onchange="preview_image()">
                     <br><br>
@@ -380,7 +380,8 @@
                 </div>
 
                 <div class="field" id="seccionPDF" style="margin: 0 auto;display: none">
-                    <p style="text-align: center;margin-bottom: 5px !important;margin-top: 40px;" for="filesPDF">Sube el PDF de tu material</p>
+                    <p style="text-align: center;margin-bottom: 5px !important;margin-top: 40px;" for="filesPDF">Sube el
+                        PDF de tu material</p>
                     <p></p>
                     <input type="file" id="filesPDF" accept="pdf/*">
                 </div>
@@ -394,9 +395,10 @@
                     </ul>
                 </div>
 
-                <div class="col-12" style="margin-top: 8%;" id="seccionBtnConfirmarMulti">
+                <div class="col-12" style="margin-top: 8%; display: none" id="seccionBtnConfirmarMulti">
                     <ul class="actions special">
-                        <li><a id="guardarRegistroMulti" onclick="enviar('2')" class="btn btnGreen">Confirmar salida</a></li>
+                        <li><a id="guardarRegistroMulti" onclick="enviar('2')" class="btn btnGreen">Confirmar salida</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -437,7 +439,7 @@
     var banderaTipo = 0;
     const checkbox = document.getElementById('chtMultibono');
 
-    checkbox.addEventListener('change', function() {
+    checkbox.addEventListener('change', function () {
         if (checkbox.checked) {
             banderaTipo = 1;
             document.getElementById('btnAgregarDiv').style.display = 'block';
@@ -604,8 +606,6 @@
         } else {
             document.getElementById("tipoSalidaP").value = "";
         }
-
-        console.log("Categoría seleccionada: " + categoria);
     });
 
     function recarge() {
