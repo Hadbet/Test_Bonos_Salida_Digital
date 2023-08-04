@@ -173,8 +173,13 @@
                         <input type="text" placeholder="Solicitante" name="solicitante" id="txtSolicitante" required/>
                     </div>
 
+                    <div class="col-12" style="margin-top: 8%;">
+                        <ul class="actions special">
+                            <li><button id="btnAgregarDiv" class="btn btnGreen" style="display: none">Agregar</button></li>
+                        </ul>
+                    </div>
 
-                    <button id="btnAgregarDiv" class="btn btnGreen" style="display: none">Agregar</button>
+
 
 
                     <div id="fila" style="">
