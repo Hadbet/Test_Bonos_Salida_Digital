@@ -173,14 +173,11 @@
                         <input type="text" placeholder="Solicitante" name="solicitante" id="txtSolicitante" required/>
                     </div>
 
-                    <div class="col-12" style="margin-top: 8%;">
+                    <div class="col-12" style="margin-top: 8%;display: none" id="seccionAgregarDiv">
                         <ul class="actions special">
-                            <li><a id="btnAgregarDiv" class="btn btnGreen" style="display: none">Agregar</a></li>
+                            <li><a id="btnAgregarDiv" class="btn btnGreen" >Agregar</a></li>
                         </ul>
                     </div>
-
-
-
 
                     <div id="fila" style="">
                         <hr>
@@ -448,14 +445,14 @@
     checkbox.addEventListener('change', function () {
         if (checkbox.checked) {
             banderaTipo = 1;
-            document.getElementById('btnAgregarDiv').style.display = 'block';
+            document.getElementById('seccionAgregarDiv').style.display = 'block';
             document.getElementById('seccionBtnConfirmarMulti').style.display = 'block';
             document.getElementById('seccionBtnConfirmar').style.display = 'none';
             document.getElementById('seccionImagen').style.display = 'none';
             document.getElementById('seccionPDF').style.display = 'block'; // Mostrar el botón cuando el checkbox está marcado
         } else {
             banderaTipo = 0;
-            document.getElementById('btnAgregarDiv').style.display = 'none';
+            document.getElementById('seccionAgregarDiv').style.display = 'none';
             document.getElementById('seccionBtnConfirmarMulti').style.display = 'none';
             document.getElementById('seccionBtnConfirmar').style.display = 'block';
             document.getElementById('seccionImagen').style.display = 'block';
