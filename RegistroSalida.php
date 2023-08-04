@@ -175,7 +175,7 @@
 
                     <div class="col-12" style="margin-top: 8%;">
                         <ul class="actions special">
-                            <li><button id="btnAgregarDiv" class="btn btnGreen" style="display: none">Agregar</button></li>
+                            <li><a id="btnAgregarDiv" class="btn btnGreen" style="display: none">Agregar</a></li>
                         </ul>
                     </div>
 
