@@ -185,13 +185,13 @@
                             />
                         </div>
 
-                        <div class="col-6 col-12-small" style="float: left; width: 50%;padding-right: 20px">
+                        <div class="col-4 col-12-small" style="float: left; width: 50%;padding-right: 20px">
                             <p style="margin-bottom: 10px !important; margin-top: 10px;">Cantidad</p>
                             <input type="number" placeholder="Cantidad" name="Cantidad" id="txtCantidad" min="1"
                                    pattern="^[0-9]+"/>
                         </div>
 
-                        <div class="col-6 col-12-small" style="float: right; width: 50%;padding-left: 20px">
+                        <div class="col-4 col-12-small" style="float: right; width: 50%;padding-left: 20px">
                             <p style="margin-bottom: 10px !important; margin-top: 10px;">U/M</p>
                             <select style="margin-bottom: 20px" placeholder="Unidad de medida" name="um" id="txtUm">
                                 <option value="" selected>Seleccione la unidad de medida</option>
@@ -207,7 +207,7 @@
                             </select>
                         </div>
 
-                        <div class="col-12 col-12-small">
+                        <div class="col-4 col-12-small">
                             <select id="sltTipo" style="margin-bottom: 15px; margin-top: 30px;">
                                 <option value="value1" selected>Seleccione el tipo</option>
                                 <option value="E-Baja de activos_CO">Baja de activos</option>
