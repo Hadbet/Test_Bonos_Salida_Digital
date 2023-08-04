@@ -174,7 +174,7 @@
                     </div>
 
 
-                    <button id="btnAgregarDiv" style="display: none">Agregar</button>
+                    <button id="btnAgregarDiv" class="btn btnGreen" style="display: none">Agregar</button>
 
 
                     <div id="fila" style="">
@@ -325,7 +325,7 @@
                     </div>
                     <hr>
 
-                    <div class="col-6 col-12-small">
+                    <div class="col-6 col-12-small" style="align-self: center;">
                         <select id="sltRetorno" style="margin-bottom: 15px; margin-top: 15px;">
                             <option value="valueR">¿El material retorna?</option>
                             <option value="Si">Sí</option>
@@ -480,21 +480,17 @@
         const txtCantidadInput = nuevoDiv.querySelector('#txtCantidad');
         const txtUmInput = nuevoDiv.querySelector('#txtUm');
         const sltTipoSelect = nuevoDiv.querySelector('#sltTipo');
-        const sltRetornoSelect = nuevoDiv.querySelector('#sltRetorno');
-
         // Actualizar los IDs de los campos del nuevo div
         txtDescripcionInput.id = "txtDescripcion" + contador;
         txtCantidadInput.id = "txtCantidad" + contador;
         txtUmInput.id = "txtUm" + contador;
         sltTipoSelect.id = "sltTipo" + contador;
-        sltRetornoSelect.id = "sltRetorno" + contador;
 
         // Limpiar los valores de los campos del nuevo div
         txtDescripcionInput.value = '';
         txtCantidadInput.value = '';
         txtUmInput.value = '';
         sltTipoSelect.selectedIndex = 0;
-        sltRetornoSelect.selectedIndex = 0;
 
         // Agregar el nuevo div justo después del div original
         divOriginal.parentNode.insertBefore(nuevoDiv, divOriginal.nextSibling);
