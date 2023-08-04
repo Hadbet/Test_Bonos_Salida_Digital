@@ -180,13 +180,13 @@
                     <div id="fila" style="">
                         <hr>
                         <div id="row">
-                            <div class="col-12 col-12-small">
+                            <div class="col-12 col-12-small" style="float: left">
                                 <p style="margin-bottom: 10px !important;">Descripción / Modelo / No.Serie</p>
                                 <input type="text" placeholder="Descripción" name="Descripcion" id="txtDescripcion"
                                 />
                             </div>
 
-                            <div class="col-4 col-12-small">
+                            <div class="col-4 col-12-small" style="float: left;padding-left: 10px;padding-right: 10px;">
                                 <p style="margin-bottom: 10px !important; margin-top: 10px;">Cantidad</p>
                                 <input type="number" placeholder="Cantidad" name="Cantidad" id="txtCantidad" min="1"
                                        pattern="^[0-9]+"/>
@@ -209,7 +209,8 @@
                             </div>
                         </div>
 
-                        <div class="col-4 col-12-small">
+                        <div class="col-4 col-12-small" style="float: left">
+                            <p style="margin-bottom: 10px !important; margin-top: 10px;">Tipo de material</p>
                             <select id="sltTipo" style="margin-bottom: 15px; margin-top: 30px;">
                                 <option value="value1" selected>Seleccione el tipo</option>
                                 <option value="E-Baja de activos_CO">Baja de activos</option>
