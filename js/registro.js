@@ -187,7 +187,7 @@ function enviar(foto) {
                 }
 
             }else{
-                descripcion.push(document.getElementById('txtDescripcion'+i).value.trim);
+                descripcion.push(document.getElementById('txtDescripcion'+i).value.trim());
                 cantidad.push(document.getElementById('txtCantidad'+i).value.trim());
                 unidadMedida.push(document.getElementById('txtUm'+i).value.trim());
                 tipoBono.push(document.getElementById('sltTipo'+i).value.trim());
