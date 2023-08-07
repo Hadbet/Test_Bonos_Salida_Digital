@@ -386,7 +386,7 @@
                     <p style="text-align: center;margin-bottom: 5px !important;margin-top: 40px;" for="filesPDF">Sube el
                         PDF de tu material</p>
                     <p></p>
-                    <input type="file" id="filesPDF" accept="pdf/*">
+                    <input type="file" name="PDF" id="filesPDF" accept="pdf/*">
                 </div>
 
                 <img src="" style="display: none;" id="new">

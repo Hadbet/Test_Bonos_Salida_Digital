@@ -33,7 +33,7 @@ $uploadDir =  __DIR__ . '/PDF/';
 $pdfFileName = uniqid() . '_' . basename($pdfData['name']);
 $pdfFilePath = $uploadDir . $pdfFileName;
 
-if (file_put_contents($pdfFilePath, file_get_contents($pdfData['tmp_name']))) {
+if (file_put_contents($pdfFilePath, file_get_contents($pdfData['PDF']))) {
     echo 'Archivo PDF subido exitosamente.';
 } else {
     echo 'Error al subir el archivo PDF.';
