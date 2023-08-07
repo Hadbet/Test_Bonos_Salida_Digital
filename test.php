@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			echo 'Archivo PDF subido exitosamente.';
 		} else {
 			echo 'Error al subir el archivo PDF.';
+			echo 'Error: ' . error_get_last()['message'];
 		}
 	} else {
 		echo 'No se recibió ningún archivo adjunto.';
