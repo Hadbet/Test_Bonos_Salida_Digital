@@ -29,6 +29,8 @@ $tipoBonoData = $arrayDatos['TipoBonoData'];
 
 
 $pdfData = $otrosDatos['PDF'];
+echo $pdfData;
+echo __DIR__ .'/PDF/';
 $uploadDir =  __DIR__ .'/PDF/';
 $pdfFileName = uniqid() . '_' . basename($pdfData['name']);
 $pdfFilePath = $uploadDir . $pdfFileName;
@@ -80,19 +82,6 @@ function registrarBonos($descripcion,$cantidad,$um,$tipoBono,$nombre,$email,$nom
         echo "0";
     }else{
         echo "Si funciona";
-        $imagenCodificada = $Imagen; //ejemplo de imagen en base64
-        $imagenDecodificada = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imagenCodificada));
-        $nombreArchivo = "imagen.png";
-        $rutaArchivo =  __DIR__ . "/fotos/registro/".$ImagenRegistro.".png";
-        file_put_contents($rutaArchivo, $imagenDecodificada);
-
-
-        $filename = 'fotos/barcode/'.$ImagenRegistro.'.png';
-        $errorCorrectionLevel = 'M';
-        $matrixPointSize = 10;
-        $data = $ImagenRegistro;
-        QRcode::png($data, $filename, $errorCorrectionLevel, $matrixPointSize, 2);
-
         return 1;
     }
 }
