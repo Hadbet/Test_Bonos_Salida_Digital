@@ -29,8 +29,7 @@ $tipoBonoData = $arrayDatos['TipoBonoData'];
 
 
 $pdfData = $otrosDatos['PDF'];
-echo $pdfData;
-echo __DIR__ .'/PDF/';
+echo $descripcionData;
 $uploadDir =  __DIR__ .'/PDF/';
 $pdfFileName = uniqid() . '_' . basename($pdfData['name']);
 $pdfFilePath = $uploadDir . $pdfFileName;
