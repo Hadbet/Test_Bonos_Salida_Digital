@@ -37,6 +37,7 @@ if (file_put_contents($pdfFilePath, file_get_contents($pdfData['tmp_name']))) {
     echo 'Archivo PDF subido exitosamente.';
 } else {
     echo 'Error al subir el archivo PDF.';
+    echo 'Error: ' . error_get_last()['message'];
 }
 
 // Recorrer los arrays y hacer lo que necesites con los datos
