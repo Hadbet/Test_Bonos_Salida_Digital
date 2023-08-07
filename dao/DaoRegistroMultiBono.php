@@ -27,17 +27,20 @@ $cantidadData = $arrayDatos['CantidadData'];
 $unidadMedidaData = $arrayDatos['UnidadMedidaData'];
 $tipoBonoData = $arrayDatos['TipoBonoData'];
 
-$pdfData = $_FILES[$otrosDatos['PDF']];
-echo $pdfData;
-$uploadDir =  __DIR__ . '/PDF/';
-$pdfFileName = uniqid() . '_' . basename($pdfData['name']);
-$pdfFilePath = $uploadDir . $pdfFileName;
+$pdfData = $_FILES["PDF"];
 
-if (file_put_contents($pdfFilePath, file_get_contents($pdfData['PDF']))) {
-    echo 'Archivo PDF subido exitosamente.';
+if (!empty($pdfData["name"])) {
+    $uploadDir = __DIR__ . '/PDF/';
+    $pdfFileName = uniqid() . '_' . basename($pdfData['name']);
+    $pdfFilePath = $uploadDir . $pdfFileName;
+
+    if (move_uploaded_file($pdfData['tmp_name'], $pdfFilePath)) {
+        echo 'Archivo PDF subido exitosamente.';
+    } else {
+        echo 'Error: ' . error_get_last()['message'];
+    }
 } else {
-    echo 'Error al subir el archivo PDF.';
-    echo 'Error: ' . error_get_last()['message'];
+    echo 'Error: No se seleccionó ningún archivo PDF.';
 }
 
 // Recorrer los arrays y hacer lo que necesites con los datos
@@ -47,40 +50,41 @@ for ($i = 0; $i < count($descripcionData); $i++) {
 }
 
 // Enviar una respuesta al cliente
-$response = ['message' => 'Datos recibidos y procesados correctamente '.$NombreAux];
+$response = ['message' => 'Datos recibidos y procesados correctamente ' . $NombreAux];
 echo json_encode($response);
 
-function registrarBonos($descripcion,$cantidad,$um,$tipoBono,$nombre,$email,$nomina,$solicitante,$empresa,$direccion,$area,$retorno,$fechaRetorno,$comentarios,$causa,$IdImagenAux){
+function registrarBonos($descripcion, $cantidad, $um, $tipoBono, $nombre, $email, $nomina, $solicitante, $empresa, $direccion, $area, $retorno, $fechaRetorno, $comentarios, $causa, $IdImagenAux)
+{
 
     $con = new LocalConector();
-    $conex=$con->conectar();
+    $conex = $con->conectar();
 
     $Object = new DateTime();
     $Object->setTimezone(new DateTimeZone('America/Denver'));
     $DateAndTime = $Object->format("Y/m/d h:i:s");
 
-    $Descripcion = str_replace(array('"', "'","/",'\\'), '', $descripcion);
-    $Empresa = str_replace(array('"', "'","/",'\\'), '', $empresa);
-    $Direccion = str_replace(array('"', "'","/",'\\'), '', $direccion);
-    $Causa = str_replace(array('"', "'","/",'\\'), '', $causa);
-    $Comentarios = str_replace(array('"', "'","/",'\\'), '', $comentarios);
-    $ImagenRegistro = str_replace(array('"', "'","/",'\\'), '', $IdImagenAux);
+    $Descripcion = str_replace(array('"', "'", "/", '\\'), '', $descripcion);
+    $Empresa = str_replace(array('"', "'", "/", '\\'), '', $empresa);
+    $Direccion = str_replace(array('"', "'", "/", '\\'), '', $direccion);
+    $Causa = str_replace(array('"', "'", "/", '\\'), '', $causa);
+    $Comentarios = str_replace(array('"', "'", "/", '\\'), '', $comentarios);
+    $ImagenRegistro = str_replace(array('"', "'", "/", '\\'), '', $IdImagenAux);
 
-    if($tipoBono=='1'){
-        $insertRegistro= "INSERT INTO `BitacoraBonosSalida`(`NominaSolicitante`, `NombreSolicitante`, `Descripcion`, `Cantidad`, `UnidadMedida`, `Empresa`, `NombreExterno`, `Direccion`, `FechaRegistro`, `TipoSalida`, `FechaRetorno`, `Causa`, `Comentarios`, `ImagenRegistro`, `Estatus`, `TipoRetorno`,`CorreoSolicitante`,`ConfirmacionControlling`,`ConfirmacionEhs`,`ConfirmacionPlant`,`TipoBono`,`Area`,`CorreoEncargado`) VALUES ('$Nomina','$Solicitante','$Descripcion','$Cantidad','$Um','$Empresa','$Portador','$Direccion','$DateAndTime','$Tipo','$FechaRetorno','$Causa','$Comentarios','$ImagenRegistro',1,'$Retorno','$Email',1,1,1,'$TipoBono','$Area','$CorreoEncargado')";
+    if ($tipoBono == '1') {
+        $insertRegistro = "INSERT INTO `BitacoraBonosSalida`(`NominaSolicitante`, `NombreSolicitante`, `Descripcion`, `Cantidad`, `UnidadMedida`, `Empresa`, `NombreExterno`, `Direccion`, `FechaRegistro`, `TipoSalida`, `FechaRetorno`, `Causa`, `Comentarios`, `ImagenRegistro`, `Estatus`, `TipoRetorno`,`CorreoSolicitante`,`ConfirmacionControlling`,`ConfirmacionEhs`,`ConfirmacionPlant`,`TipoBono`,`Area`,`CorreoEncargado`) VALUES ('$Nomina','$Solicitante','$Descripcion','$Cantidad','$Um','$Empresa','$Portador','$Direccion','$DateAndTime','$Tipo','$FechaRetorno','$Causa','$Comentarios','$ImagenRegistro',1,'$Retorno','$Email',1,1,1,'$TipoBono','$Area','$CorreoEncargado')";
     }
 
-    if($tipoBono=='2'){
-        $insertRegistro= "INSERT INTO `BitacoraBonosSalida`(`NominaSolicitante`, `NombreSolicitante`, `Descripcion`, `Cantidad`, `UnidadMedida`, `Empresa`, `NombreExterno`, `Direccion`, `FechaRegistro`, `TipoSalida`, `FechaRetorno`, `Causa`, `Comentarios`, `ImagenRegistro`, `Estatus`, `TipoRetorno`,`CorreoSolicitante`,`TipoBono`,`Area`,`CorreoEncargado`) VALUES ('$Nomina','$Solicitante','$Descripcion','$Cantidad','$Um','$Empresa','$Portador','$Direccion','$DateAndTime','$Tipo','$FechaRetorno','$Causa','$Comentarios','$ImagenRegistro',1,'$Retorno','$Email','$TipoBono','$Area','$CorreoEncargado')";
+    if ($tipoBono == '2') {
+        $insertRegistro = "INSERT INTO `BitacoraBonosSalida`(`NominaSolicitante`, `NombreSolicitante`, `Descripcion`, `Cantidad`, `UnidadMedida`, `Empresa`, `NombreExterno`, `Direccion`, `FechaRegistro`, `TipoSalida`, `FechaRetorno`, `Causa`, `Comentarios`, `ImagenRegistro`, `Estatus`, `TipoRetorno`,`CorreoSolicitante`,`TipoBono`,`Area`,`CorreoEncargado`) VALUES ('$Nomina','$Solicitante','$Descripcion','$Cantidad','$Um','$Empresa','$Portador','$Direccion','$DateAndTime','$Tipo','$FechaRetorno','$Causa','$Comentarios','$ImagenRegistro',1,'$Retorno','$Email','$TipoBono','$Area','$CorreoEncargado')";
         echo $insertRegistro;
     }
 
-    $rsinsertUsu=mysqli_query($conex,$insertRegistro);
+    $rsinsertUsu = mysqli_query($conex, $insertRegistro);
     mysqli_close($conex);
 
-    if(!$rsinsertUsu){
+    if (!$rsinsertUsu) {
         echo "0";
-    }else{
+    } else {
         echo "Si funciona";
         return 1;
     }
