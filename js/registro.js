@@ -209,11 +209,15 @@ function enviar(foto) {
         var causa = document.getElementById('txtCausa');
         var comentarios = document.getElementById('txtComentarios');
         var correoEncargado = document.getElementById('txtCorreoEncargado');
+        var idPDF = document.getElementById('filesPDF').files[0];
         const correo = correoEncargado.value;
         const partes = correo.split("@");
         const nombreCompleto = partes[0].replace(/\b(\w)/g, function (match, primeraLetra) {
             return primeraLetra.toUpperCase();
         }).replace(".", " ");
+
+        var idImagen = nomina.value.toString() + solicitante.value.toString().substring(0, 2) + descripcion.value.toString().substring(0, 2) + cantidad.value + um.value + empresa.value.toString().substring(0, 2) + direccion.value.toString().substring(0, 2) + causa.value.toString().substring(0, 2) + comentarios.value.toString().substring(0, 2) + randomNum;
+
 
         var otrosDatos = {
             NombreCompleto: nombreCompleto,
@@ -227,7 +231,7 @@ function enviar(foto) {
             FechaRetorno: fechaRetorno.value,
             Comentarios: comentarios.value,
             Causa: causa.value,
-            Contador: contador
+            PDF: idPDF
         };
 
         var requestData = {
