@@ -187,7 +187,6 @@ function enviar(foto) {
                 }
 
             }else{
-
                 descripcion.push(document.getElementById('txtDescripcion'+i).value.trim);
                 cantidad.push(document.getElementById('txtCantidad'+i).value.trim());
                 unidadMedida.push(document.getElementById('txtUm'+i).value.trim());
@@ -196,16 +195,38 @@ function enviar(foto) {
                 if (document.getElementById('sltTipo'+i).value.startsWith("E-")){
                     tipoBonoAuxMulti = 2;
                 }
-
             }
-
         }
 
+        var email = document.getElementById('txtEmail');
+        var nomina = document.getElementById('txtNomina');
+        var solicitante = document.getElementById('txtSolicitante');
+        var empresa = document.getElementById('txtEmpresa');
+        var direccion = document.getElementById('txtDireccion');
+        var area = document.getElementById('sltArea');
+        var retorno = document.getElementById('sltRetorno');
+        var fechaRetorno = document.getElementById('txtFechaRetorno');
+        var causa = document.getElementById('txtCausa');
+        var comentarios = document.getElementById('txtComentarios');
+        var correoEncargado = document.getElementById('txtCorreoEncargado');
+        const correo = correoEncargado.value;
+        const partes = correo.split("@");
+        const nombreCompleto = partes[0].replace(/\b(\w)/g, function (match, primeraLetra) {
+            return primeraLetra.toUpperCase();
+        }).replace(".", " ");
+
         var otrosDatos = {
-            SupervisorAux: supervisor.value,
-            ShiftLeaderAux: shiftLeader.value,
-            TurnoAux: Turno.value,
-            OperacionAux: operacion.value,
+            NombreCompleto: nombreCompleto,
+            email: email.value,
+            nomina: nomina.value,
+            solicitante: solicitante.value,
+            empresa: empresa.value,
+            direccion: direccion.value,
+            area: area.value,
+            retorno: retorno.value,
+            fechaRetorno: fechaRetorno.value,
+            Comentarios: comentarios.value,
+            Causa: causa.value,
             Contador: contador
         };
 
