@@ -201,6 +201,37 @@ function enviar(foto) {
 
         }
 
+        var otrosDatos = {
+            SupervisorAux: supervisor.value,
+            ShiftLeaderAux: shiftLeader.value,
+            TurnoAux: Turno.value,
+            OperacionAux: operacion.value,
+            Contador: contador
+        };
+
+        var requestData = {
+            DescripcionData: descripcion,
+            CantidadData: cantidad,
+            UnidadMedidaData: unidadMedida,
+            TipoBonoData: tipoBono,
+            otrosDatos: otrosDatos
+        };
+
+        fetch("dao/DaoRegistroMultiBono.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestData)
+        })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); // Mostrar la respuesta del servidor
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+
         console.log(descripcion);
         console.log(cantidad);
         console.log(unidadMedida);
