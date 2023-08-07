@@ -29,14 +29,14 @@ $tipoBonoData = $arrayDatos['TipoBonoData'];
 
 $pdfData = $otrosDatos['PDF'];
 echo $pdfData;
-$uploadDir =  __DIR__ .'/PDF/';
+$uploadDir =  __DIR__ . '/PDF/';
 $pdfFileName = uniqid() . '_' . basename($pdfData['name']);
 $pdfFilePath = $uploadDir . $pdfFileName;
-if (move_uploaded_file($pdfData['tmp_name'], $pdfFilePath)) {
+
+if (file_put_contents($pdfFilePath, file_get_contents($pdfData['tmp_name']))) {
     echo 'Archivo PDF subido exitosamente.';
 } else {
     echo 'Error al subir el archivo PDF.';
-    echo 'Error: ' . error_get_last()['message'];
 }
 
 // Recorrer los arrays y hacer lo que necesites con los datos
