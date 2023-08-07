@@ -28,7 +28,7 @@ $unidadMedidaData = $arrayDatos['UnidadMedidaData'];
 $tipoBonoData = $arrayDatos['TipoBonoData'];
 
 
-$pdfData = $otrosDatos['PDF'];
+$pdfData = $_FILES['PDF'];
 echo $pdfData;
 $uploadDir =  __DIR__ .'/PDF/';
 $pdfFileName = uniqid() . '_' . basename($pdfData['name']);
