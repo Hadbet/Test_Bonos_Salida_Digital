@@ -216,9 +216,6 @@ function enviar(foto) {
             return primeraLetra.toUpperCase();
         }).replace(".", " ");
 
-        var idImagen = nomina.value.toString() + solicitante.value.toString().substring(0, 2) + descripcion.value.toString().substring(0, 2) + cantidad.value + um.value + empresa.value.toString().substring(0, 2) + direccion.value.toString().substring(0, 2) + causa.value.toString().substring(0, 2) + comentarios.value.toString().substring(0, 2) + randomNum;
-
-
         var otrosDatos = {
             NombreCompleto: nombreCompleto,
             Email: email.value,
