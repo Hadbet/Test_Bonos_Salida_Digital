@@ -217,14 +217,14 @@ function enviar(foto) {
 
         var otrosDatos = {
             NombreCompleto: nombreCompleto,
-            email: email.value,
-            nomina: nomina.value,
-            solicitante: solicitante.value,
-            empresa: empresa.value,
-            direccion: direccion.value,
-            area: area.value,
-            retorno: retorno.value,
-            fechaRetorno: fechaRetorno.value,
+            Email: email.value,
+            Nomina: nomina.value,
+            Solicitante: solicitante.value,
+            Empresa: empresa.value,
+            Direccion: direccion.value,
+            Area: area.value,
+            Retorno: retorno.value,
+            FechaRetorno: fechaRetorno.value,
             Comentarios: comentarios.value,
             Causa: causa.value,
             Contador: contador
