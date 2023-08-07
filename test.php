@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if (isset($_FILES['PDF']) && !empty($_FILES['PDF']['name'])) {
 		$pdfData = $_FILES['PDF'];
 
-		$uploadDir = __DIR__ . '/PDF/';
+		$uploadDir = __DIR__ . '/dao/PDF/';
 		$pdfFileName = uniqid() . '_' . basename($pdfData['name']);
 		$pdfFilePath = $uploadDir . $pdfFileName;
 
