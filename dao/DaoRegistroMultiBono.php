@@ -26,23 +26,6 @@ $descripcionData = $arrayDatos['DescripcionData'];
 $cantidadData = $arrayDatos['CantidadData'];
 $unidadMedidaData = $arrayDatos['UnidadMedidaData'];
 $tipoBonoData = $arrayDatos['TipoBonoData'];
-$PDF = $otrosDatos['PDF'];
-
-$pdfData = $PDF;
-
-if (!empty($pdfData["name"])) {
-    $uploadDir = __DIR__ . '/PDF/';
-    $pdfFileName = uniqid() . '_' . basename($pdfData['name']);
-    $pdfFilePath = $uploadDir . $pdfFileName;
-
-    if (move_uploaded_file($pdfData['tmp_name'], $pdfFilePath)) {
-        echo 'Archivo PDF subido exitosamente.';
-    } else {
-        echo 'Error: ' . error_get_last()['message'];
-    }
-} else {
-    echo 'Error: No se seleccionó ningún archivo PDF.';
-}
 
 // Recorrer los arrays y hacer lo que necesites con los datos
 for ($i = 0; $i < count($descripcionData); $i++) {
