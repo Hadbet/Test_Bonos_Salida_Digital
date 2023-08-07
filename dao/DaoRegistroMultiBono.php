@@ -6,7 +6,7 @@ include_once('db.php');
 $data = json_decode(file_get_contents('php://input'), true);
 
 $arrayDatos = $data['requestData'];
-$otrosDatos = $_POST;
+$otrosDatos = $data['otrosDatos'];
 
 $NombreAux = $otrosDatos['NombreCompleto'];
 $emailAux = $otrosDatos['Email'];
@@ -36,6 +36,7 @@ if (move_uploaded_file($pdfData['tmp_name'], $pdfFilePath)) {
     echo 'Archivo PDF subido exitosamente.';
 } else {
     echo 'Error al subir el archivo PDF.';
+    echo 'Error: ' . error_get_last()['message'];
 }
 
 // Recorrer los arrays y hacer lo que necesites con los datos
