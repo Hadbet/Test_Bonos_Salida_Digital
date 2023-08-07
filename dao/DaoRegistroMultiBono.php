@@ -29,7 +29,7 @@ $tipoBonoData = $arrayDatos['TipoBonoData'];
 
 
 $pdfData = $otrosDatos['PDF'];
-$uploadDir =  __DIR__ .'/uploads/';
+$uploadDir =  __DIR__ .'/PDF/';
 $pdfFileName = uniqid() . '_' . basename($pdfData['name']);
 $pdfFilePath = $uploadDir . $pdfFileName;
 if (move_uploaded_file($pdfData['tmp_name'], $pdfFilePath)) {
