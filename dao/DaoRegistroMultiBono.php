@@ -18,9 +18,6 @@ for ($i = 0; $i < count($descripcionData); $i++) {
     $cantidad = $cantidadData[$i];
     $unidadMedida = $unidadMedidaData[$i];
     $tipoBono = $tipoBonoData[$i];
-
-    // Realizar operaciones con los datos, por ejemplo, insertar en la base de datos
-    // ...
 }
 
 // Puedes acceder a otros datos como SupervisorAux, ShiftLeaderAux, etc. desde $otrosDatos
@@ -34,7 +31,7 @@ $contador = $otrosDatos['Contador'];
 // ...
 
 // Enviar una respuesta al cliente
-$response = ['message' => 'Datos recibidos y procesados correctamente'];
+$response = ['message' => 'Datos recibidos y procesados correctamente '.$operacionAux];
 echo json_encode($response);
 
 
