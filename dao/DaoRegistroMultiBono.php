@@ -21,6 +21,7 @@ $fechaRetornoAux = $otrosDatos['FechaRetorno'];
 $comentariosAux = $otrosDatos['Comentarios'];
 $causaAux = $otrosDatos['Causa'];
 $IdPDF = $otrosDatos['PDF'];
+$Contador = $otrosDatos['Contador'];
 
 // Obtener los datos del objeto
 $descripcionData = $arrayDatos['DescripcionData'];
@@ -28,10 +29,10 @@ $cantidadData = $arrayDatos['CantidadData'];
 $unidadMedidaData = $arrayDatos['UnidadMedidaData'];
 $tipoBonoData = $arrayDatos['TipoBonoData'];
 
-echo count($descripcionData);
+echo $Contador;
 
 // Recorrer los arrays y hacer lo que necesites con los datos
-for ($i = 0; $i < count($descripcionData); $i++) {
+for ($i = 0; $i < $Contador; $i++) {
     echo 'entro a la funcion 0';
     registrarBonos($descripcionData[$i],$cantidadData[$i],$unidadMedidaData[$i],$tipoBonoData[$i],$NombreAux,$emailAux,$nominaAux,$solicitanteAux,$empresaAux,$direccionAux,
         $areaAux,$retornoAux,$fechaRetornoAux,$comentariosAux,$causaAux,$IdPDF);

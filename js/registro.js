@@ -231,7 +231,8 @@ function enviar(foto) {
             FechaRetorno: fechaRetorno.value,
             Comentarios: comentarios.value,
             Causa: causa.value,
-            PDF: uniqueId
+            PDF: uniqueId,
+            Contador:contador
         };
 
         var requestData = {
