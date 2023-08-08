@@ -5,8 +5,6 @@ include_once('db.php');
 $data = json_decode(file_get_contents('php://input'), true);
 
 try {
-
-    $arrayDatos = $data['requestData'];
     $otrosDatos = $data['otrosDatos'];
 
     $NombreAux = $otrosDatos['NombreCompleto'];
@@ -24,48 +22,22 @@ try {
     $Contador = $otrosDatos['Contador'];
     $TipoBonoMulti = $otrosDatos['TipoBonoMulti'];
 
-    $descripcionData = $arrayDatos['DescripcionData'];
-    $cantidadData = $arrayDatos['CantidadData'];
-    $unidadMedidaData = $arrayDatos['UnidadMedidaData'];
-    $tipoBonoData = $arrayDatos['TipoBonoData'];
+    $descripcionData = $data['DescripcionData'];
+    $cantidadData = $data['CantidadData'];
+    $unidadMedidaData = $data['UnidadMedidaData'];
+    $tipoBonoData = $data['TipoBonoData'];
 
-    echo "Descripción Data:";
-    foreach ($descripcionData as $descripcion) {
-        echo $descripcion . "<br>";
-    }
-
-    echo "Cantidad Data:";
-    foreach ($cantidadData as $cantidad) {
-        echo $cantidad . "<br>";
-    }
-
-    echo "Unidad Medida Data:";
-    foreach ($unidadMedidaData as $unidadMedida) {
-        echo $unidadMedida . "<br>";
-    }
-
-    echo "Tipo Bono Data:";
-    foreach ($tipoBonoData as $tipoBono) {
-        echo $tipoBono . "<br>";
-    }
-
-    foreach ($descripcionData as $i => $descripcion) {
-        $cantidad = $cantidadData[$i];
-        $unidadMedida = $unidadMedidaData[$i];
-        $tipoBono = $tipoBonoData[$i];
-
-        echo $descripcion;
-        echo $cantidad;
-        echo $unidadMedida;
-        echo $tipoBono;
-
-        registrarBonos($descripcion, $cantidad, $unidadMedida, $tipoBono, $NombreAux, $emailAux, $nominaAux, $solicitanteAux, $empresaAux, $direccionAux,
+    for ($i = 0; $i < $Contador; $i++) {
+        echo $descripcionData[$i];
+        echo $cantidadData[$i];
+        echo $unidadMedidaData[$i];
+        echo $tipoBonoData[$i];
+        registrarBonos($descripcionData[$i], $cantidadData[$i], $unidadMedidaData[$i], $tipoBonoData[$i], $NombreAux, $emailAux, $nominaAux, $solicitanteAux, $empresaAux, $direccionAux,
             $areaAux, $retornoAux, $fechaRetornoAux, $comentariosAux, $causaAux, $IdPDF, $TipoBonoMulti);
     }
 
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
-    // Puedes agregar más manejo de errores aquí si es necesario
 }
 
 function registrarBonos($descripcion, $cantidad, $um, $tipoBono, $nombre, $email, $nomina, $solicitante, $empresa, $direccion, $area, $retorno, $fechaRetorno, $comentarios, $causa, $IdPDF, $TipoBonoMulti)
