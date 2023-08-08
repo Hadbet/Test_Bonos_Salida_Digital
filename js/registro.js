@@ -246,6 +246,7 @@ function enviar(foto) {
         const formData = new FormData();
         formData.append("PDF", pdfFile);
         formData.append("idImagen", uniqueId);
+        console.log(JSON.stringify(requestData));
 
         fetch("upload.php", {
             method: "POST",
