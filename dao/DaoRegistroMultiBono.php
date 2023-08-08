@@ -2,6 +2,7 @@
 
 include_once('db.php');
 
+echo 'entro';
 // Recibir datos JSON de la solicitud POST
 $data = json_decode(file_get_contents('php://input'), true);
 
@@ -55,6 +56,7 @@ function registrarBonos($descripcion, $cantidad, $um, $tipoBono, $nombre, $email
     if ($tipoBono == '1') {
         $insertRegistro = "INSERT INTO `BitacoraBonosSalidaMultiples`(`NominaSolicitante`, `NombreSolicitante`, `Descripcion`, `Cantidad`, `UnidadMedida`, `Empresa`, `Direccion`, `FechaRegistro`, `TipoSalida`, `FechaRetorno`, `Causa`, `Comentarios`, `PDF`, `Estatus`,`TipoRetorno`, `CorreoSolicitante`,`TipoBono`, `Area`,`CorreoEncargado`,`Token`) VALUES 
                           ('$nomina','$solicitante','$Descripcion','$cantidad','$um','$Empresa','$Direccion','$DateAndTime','$tipoBono','$fechaRetorno','$Causa','$Comentarios','$IdPDF',1,'$retorno','$email','$tipoBono','$area','$nombre','$IdPDFAux')";
+        echo $insertRegistro;
     }
 
     if ($tipoBono == '2') {
