@@ -56,7 +56,7 @@ function registrarBonos($descripcion, $cantidad, $um, $tipoBono, $nombre, $email
     }
 
     if ($tipoBono == '2') {
-        $insertRegistro = "INSERT INTO `BitacoraBonosSalidaMultiples`(`NominaSolicitante`, `NombreSolicitante`, `Descripcion`, `Cantidad`, `UnidadMedida`, `Empresa`, `NombreExterno`, `Direccion`, `FechaRegistro`, `TipoSalida`, `FechaRetorno`, `Causa`, `Comentarios`, `ImagenRegistro`, `Estatus`, `TipoRetorno`,`CorreoSolicitante`,`TipoBono`,`Area`,`CorreoEncargado`) VALUES ('$nomina','$solicitante','$descripcion','$cantidad','$um','$empresa','','$direccion','$DateAndTime','$tipoBono','$fechaRetorno','$causa','$comentarios','$IdImagenAux',1,'$retorno','$email',1,1,1,'$tipoBono','$area','$nombre')";
+        $insertRegistro = "INSERT INTO `BitacoraBonosSalidaMultiples`(`NominaSolicitante`, `NombreSolicitante`, `Descripcion`, `Cantidad`, `UnidadMedida`, `Empresa`, `NombreExterno`, `Direccion`, `FechaRegistro`, `TipoSalida`, `FechaRetorno`, `Causa`, `Comentarios`, `ImagenRegistro`, `Estatus`, `TipoRetorno`,`CorreoSolicitante`,`TipoBono`,`Area`,`CorreoEncargado`) VALUES ('$nomina','$solicitante','$descripcion','$cantidad','$um','$empresa','','$direccion','$DateAndTime','$tipoBono','$fechaRetorno','$causa','$comentarios','$ImagenRegistro',1,'$retorno','$email',1,1,1,'$tipoBono','$area','$nombre')";
         echo $insertRegistro;
     }
 
