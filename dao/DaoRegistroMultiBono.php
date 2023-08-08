@@ -28,6 +28,8 @@ $cantidadData = $arrayDatos['CantidadData'];
 $unidadMedidaData = $arrayDatos['UnidadMedidaData'];
 $tipoBonoData = $arrayDatos['TipoBonoData'];
 
+echo 'entro 2';
+
 // Recorrer los arrays y hacer lo que necesites con los datos
 for ($i = 0; $i < count($descripcionData); $i++) {
     echo 'entro a la funcion 0';
