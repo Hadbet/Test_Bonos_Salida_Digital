@@ -33,6 +33,8 @@ for ($i = 0; $i < count($descripcionData); $i++) {
         $areaAux,$retornoAux,$fechaRetornoAux,$comentariosAux,$causaAux,$IdPDF);
 }
 
+
+
 function registrarBonos($descripcion, $cantidad, $um, $tipoBono, $nombre, $email, $nomina, $solicitante, $empresa, $direccion, $area, $retorno, $fechaRetorno, $comentarios, $causa, $IdPDF)
 {
 
@@ -65,10 +67,11 @@ function registrarBonos($descripcion, $cantidad, $um, $tipoBono, $nombre, $email
     mysqli_close($conex);
 
     if (!$rsinsertUsu) {
-        echo "0";
+        $response = ['message' => 'Error recibidos y procesados correctamente ' .$insertRegistro];
+        echo json_encode($response);
     } else {
-        echo "Si funciona";
-        return 1;
+        $response = ['message' => 'Datos recibidos y procesados correctamente ' .$insertRegistro];
+        echo json_encode($response);
     }
 }
 
