@@ -4,46 +4,53 @@ include_once('db.php');
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-$arrayDatos = $data['requestData'];
-$otrosDatos = $data['otrosDatos'];
+try {
 
-$NombreAux = $otrosDatos['NombreCompleto'];
-$emailAux = $otrosDatos['Email'];
-$nominaAux = $otrosDatos['Nomina'];
-$solicitanteAux = $otrosDatos['Solicitante'];
-$empresaAux = $otrosDatos['Empresa'];
-$direccionAux = $otrosDatos['Direccion'];
-$areaAux = $otrosDatos['Area'];
-$retornoAux = $otrosDatos['Retorno'];
-$fechaRetornoAux = $otrosDatos['FechaRetorno'];
-$comentariosAux = $otrosDatos['Comentarios'];
-$causaAux = $otrosDatos['Causa'];
-$IdPDF = $otrosDatos['PDF'];
-$Contador = $otrosDatos['Contador'];
-$TipoBonoMulti = $otrosDatos['TipoBonoMulti'];
+    $arrayDatos = $data['requestData'];
+    $otrosDatos = $data['otrosDatos'];
 
-$descripcionData = $arrayDatos['DescripcionData'];
-$cantidadData = $arrayDatos['CantidadData'];
-$unidadMedidaData = $arrayDatos['UnidadMedidaData'];
-$tipoBonoData = $arrayDatos['TipoBonoData'];
+    $NombreAux = $otrosDatos['NombreCompleto'];
+    $emailAux = $otrosDatos['Email'];
+    $nominaAux = $otrosDatos['Nomina'];
+    $solicitanteAux = $otrosDatos['Solicitante'];
+    $empresaAux = $otrosDatos['Empresa'];
+    $direccionAux = $otrosDatos['Direccion'];
+    $areaAux = $otrosDatos['Area'];
+    $retornoAux = $otrosDatos['Retorno'];
+    $fechaRetornoAux = $otrosDatos['FechaRetorno'];
+    $comentariosAux = $otrosDatos['Comentarios'];
+    $causaAux = $otrosDatos['Causa'];
+    $IdPDF = $otrosDatos['PDF'];
+    $Contador = $otrosDatos['Contador'];
+    $TipoBonoMulti = $otrosDatos['TipoBonoMulti'];
 
-echo $descripcionData;
+    $descripcionData = $arrayDatos['DescripcionData'];
+    $cantidadData = $arrayDatos['CantidadData'];
+    $unidadMedidaData = $arrayDatos['UnidadMedidaData'];
+    $tipoBonoData = $arrayDatos['TipoBonoData'];
 
-foreach ($descripcionData as $i => $descripcion) {
-    $cantidad = $cantidadData[$i];
-    $unidadMedida = $unidadMedidaData[$i];
-    $tipoBono = $tipoBonoData[$i];
+    echo $descripcionData;
 
-    echo $descripcion;
-    echo $cantidad;
-    echo $unidadMedida;
-    echo $tipoBono;
+    foreach ($descripcionData as $i => $descripcion) {
+        $cantidad = $cantidadData[$i];
+        $unidadMedida = $unidadMedidaData[$i];
+        $tipoBono = $tipoBonoData[$i];
 
-    registrarBonos($descripcion, $cantidad, $unidadMedida, $tipoBono, $NombreAux, $emailAux, $nominaAux, $solicitanteAux, $empresaAux, $direccionAux,
-        $areaAux, $retornoAux, $fechaRetornoAux, $comentariosAux, $causaAux, $IdPDF, $TipoBonoMulti);
+        echo $descripcion;
+        echo $cantidad;
+        echo $unidadMedida;
+        echo $tipoBono;
+
+        registrarBonos($descripcion, $cantidad, $unidadMedida, $tipoBono, $NombreAux, $emailAux, $nominaAux, $solicitanteAux, $empresaAux, $direccionAux,
+            $areaAux, $retornoAux, $fechaRetornoAux, $comentariosAux, $causaAux, $IdPDF, $TipoBonoMulti);
+    }
+
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+    // Puedes agregar más manejo de errores aquí si es necesario
 }
 
-function registrarBonos($descripcion, $cantidad, $um, $tipoBono, $nombre, $email, $nomina, $solicitante, $empresa, $direccion, $area, $retorno, $fechaRetorno, $comentarios, $causa, $IdPDF,$TipoBonoMulti)
+function registrarBonos($descripcion, $cantidad, $um, $tipoBono, $nombre, $email, $nomina, $solicitante, $empresa, $direccion, $area, $retorno, $fechaRetorno, $comentarios, $causa, $IdPDF, $TipoBonoMulti)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
@@ -66,10 +73,10 @@ function registrarBonos($descripcion, $cantidad, $um, $tipoBono, $nombre, $email
     mysqli_close($conex);
 
     if (!$rsinsertUsu) {
-        $response = ['message' => 'Error recibidos y procesados correctamente ' ];
+        $response = ['message' => 'Error recibidos y procesados correctamente '];
         echo json_encode($response);
     } else {
-        $response = ['message' => 'Datos recibidos y procesados correctamente ' ];
+        $response = ['message' => 'Datos recibidos y procesados correctamente '];
         echo json_encode($response);
     }
 }
