@@ -48,15 +48,16 @@ function registrarBonos($descripcion, $cantidad, $um, $tipoBono, $nombre, $email
     $Direccion = str_replace(array('"', "'", "/", '\\'), '', $direccion);
     $Causa = str_replace(array('"', "'", "/", '\\'), '', $causa);
     $Comentarios = str_replace(array('"', "'", "/", '\\'), '', $comentarios);
-    $ImagenRegistro = str_replace(array('"', "'", "/", '\\'), '', $IdPDF);
+    $IdPDFAux = str_replace(array('"', "'", "/", '\\'), '', $IdPDF);
 
     if ($tipoBono == '1') {
-        $insertRegistro = "INSERT INTO `BitacoraBonosSalidaMultiples`(`NominaSolicitante`, `NombreSolicitante`, `Descripcion`, `Cantidad`, `UnidadMedida`, `Empresa`, `NombreExterno`, `Direccion`, `FechaRegistro`, `TipoSalida`, `FechaRetorno`, `Causa`, `Comentarios`, `ImagenRegistro`, `Estatus`, `TipoRetorno`,`CorreoSolicitante`,`ConfirmacionControlling`,`ConfirmacionEhs`,`ConfirmacionPlant`,`TipoBono`,`Area`,`CorreoEncargado`) VALUES 
-                    ('$nomina','$solicitante','$Descripcion','$cantidad','$um','$Empresa','','$Direccion','$DateAndTime','$tipoBono','$fechaRetorno','$Causa','$Comentarios','$ImagenRegistro',1,'$retorno','$email',1,1,1,'$tipoBono','$area','$nombre')";
+        $insertRegistro = "INSERT INTO `BitacoraBonosSalidaMultiples`(`NominaSolicitante`, `NombreSolicitante`, `Descripcion`, `Cantidad`, `UnidadMedida`, `Empresa`, `Direccion`, `FechaRegistro`, `TipoSalida`, `FechaRetorno`, `Causa`, `Comentarios`, `PDF`, `Estatus`,`TipoRetorno`, `CorreoSolicitante`,`TipoBono`, `Area`,`CorreoEncargado`,`Token`) VALUES 
+                          ('$nomina','$solicitante','$Descripcion','$cantidad','$um','$Empresa','$Direccion','$DateAndTime','$tipoBono','$fechaRetorno','$Causa','$Comentarios','$IdPDF',1,'$retorno','$email','$tipoBono','$area','$nombre','$IdPDFAux')";
     }
 
     if ($tipoBono == '2') {
-        $insertRegistro = "INSERT INTO `BitacoraBonosSalidaMultiples`(`NominaSolicitante`, `NombreSolicitante`, `Descripcion`, `Cantidad`, `UnidadMedida`, `Empresa`, `NombreExterno`, `Direccion`, `FechaRegistro`, `TipoSalida`, `FechaRetorno`, `Causa`, `Comentarios`, `ImagenRegistro`, `Estatus`, `TipoRetorno`,`CorreoSolicitante`,`TipoBono`,`Area`,`CorreoEncargado`) VALUES ('$nomina','$solicitante','$descripcion','$cantidad','$um','$empresa','','$direccion','$DateAndTime','$tipoBono','$fechaRetorno','$causa','$comentarios','$ImagenRegistro',1,'$retorno','$email',1,1,1,'$tipoBono','$area','$nombre')";
+        $insertRegistro = "INSERT INTO `BitacoraBonosSalidaMultiples`(`NominaSolicitante`, `NombreSolicitante`, `Descripcion`, `Cantidad`, `UnidadMedida`, `Empresa`, `Direccion`, `FechaRegistro`, `TipoSalida`, `FechaRetorno`, `Causa`, `Comentarios`, `PDF`, `Estatus`, `ConfirmacionPlant`, `ConfirmacionControlling`, `ConfirmacionEhs`,`TipoRetorno`, `CorreoSolicitante`,`TipoBono`, `Area`, `CorreoEncargado`, `Token`) VALUES 
+                          ('$nomina','$solicitante','$Descripcion','$cantidad','$um','$Empresa','$Direccion','$DateAndTime','$tipoBono','$fechaRetorno','$Causa','$Comentarios','$IdPDF','$email',1,1,1,'$retorno','$email','$tipoBono','$area','$nombre','$IdPDFAux')";
         echo $insertRegistro;
     }
 
