@@ -30,6 +30,7 @@ $tipoBonoData = $arrayDatos['TipoBonoData'];
 
 // Recorrer los arrays y hacer lo que necesites con los datos
 for ($i = 0; $i < count($descripcionData); $i++) {
+    echo 'entro a la funcion 0';
     registrarBonos($descripcionData[$i],$cantidadData[$i],$unidadMedidaData[$i],$tipoBonoData[$i],$NombreAux,$emailAux,$nominaAux,$solicitanteAux,$empresaAux,$direccionAux,
         $areaAux,$retornoAux,$fechaRetornoAux,$comentariosAux,$causaAux,$IdPDF);
 }
@@ -38,7 +39,7 @@ for ($i = 0; $i < count($descripcionData); $i++) {
 
 function registrarBonos($descripcion, $cantidad, $um, $tipoBono, $nombre, $email, $nomina, $solicitante, $empresa, $direccion, $area, $retorno, $fechaRetorno, $comentarios, $causa, $IdPDF)
 {
-
+    echo 'entro a la funcion 1';
     $con = new LocalConector();
     $conex = $con->conectar();
 
@@ -53,7 +54,7 @@ function registrarBonos($descripcion, $cantidad, $um, $tipoBono, $nombre, $email
     $Comentarios = str_replace(array('"', "'", "/", '\\'), '', $comentarios);
     $IdPDFAux = str_replace(array('"', "'", "/", '\\'), '', $IdPDF);
 
-    echo 'entro a la funcion';
+    echo 'entro a la funcion 2';
 
     if ($tipoBono == '1') {
         $insertRegistro = "INSERT INTO `BitacoraBonosSalidaMultiples`(`NominaSolicitante`, `NombreSolicitante`, `Descripcion`, `Cantidad`, `UnidadMedida`, `Empresa`, `Direccion`, `FechaRegistro`, `TipoSalida`, `FechaRetorno`, `Causa`, `Comentarios`, `PDF`, `Estatus`,`TipoRetorno`, `CorreoSolicitante`,`TipoBono`, `Area`,`CorreoEncargado`,`Token`) VALUES 
