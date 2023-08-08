@@ -28,10 +28,6 @@ try {
     $tipoBonoData = $data['TipoBonoData'];
 
     for ($i = 0; $i < count($descripcionData); $i++) {
-        echo $descripcionData[$i];
-        echo $cantidadData[$i];
-        echo $unidadMedidaData[$i];
-        echo $tipoBonoData[$i];
         registrarBonos($descripcionData[$i], $cantidadData[$i], $unidadMedidaData[$i], $tipoBonoData[$i], $NombreAux, $emailAux, $nominaAux, $solicitanteAux, $empresaAux, $direccionAux,
             $areaAux, $retornoAux, $fechaRetornoAux, $comentariosAux, $causaAux, $IdPDF, $TipoBonoMulti);
     }
