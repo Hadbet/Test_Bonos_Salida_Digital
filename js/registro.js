@@ -169,7 +169,7 @@ function enviar(foto) {
         var cantidad = [];
         var unidadMedida = [];
         var tipoBono = [];
-        var tipoBonoAuxMulti;
+        var tipoBonoAuxMulti = 1;
 
         contador = contador + 1;
 
@@ -232,7 +232,8 @@ function enviar(foto) {
             Comentarios: comentarios.value,
             Causa: causa.value,
             PDF: uniqueId,
-            Contador:contador
+            Contador:contador,
+            TipoBonoMulti: tipoBonoAuxMulti
         };
 
         var requestData = {
