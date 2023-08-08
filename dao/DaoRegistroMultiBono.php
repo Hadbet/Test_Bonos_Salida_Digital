@@ -29,7 +29,25 @@ try {
     $unidadMedidaData = $arrayDatos['UnidadMedidaData'];
     $tipoBonoData = $arrayDatos['TipoBonoData'];
 
-    echo $descripcionData;
+    echo "Descripción Data:";
+    foreach ($descripcionData as $descripcion) {
+        echo $descripcion . "<br>";
+    }
+
+    echo "Cantidad Data:";
+    foreach ($cantidadData as $cantidad) {
+        echo $cantidad . "<br>";
+    }
+
+    echo "Unidad Medida Data:";
+    foreach ($unidadMedidaData as $unidadMedida) {
+        echo $unidadMedida . "<br>";
+    }
+
+    echo "Tipo Bono Data:";
+    foreach ($tipoBonoData as $tipoBono) {
+        echo $tipoBono . "<br>";
+    }
 
     foreach ($descripcionData as $i => $descripcion) {
         $cantidad = $cantidadData[$i];
