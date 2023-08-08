@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	if (!empty($pdfData["name"])) {
 		$uploadDir = __DIR__ . '/dao/PDF/';
 		$pdfFileName = $idImagen;
-		$pdfFilePath = $uploadDir . $pdfFileName;
+		$pdfFilePath = $uploadDir . $pdfFileName.'.pdf';
 
 		if (move_uploaded_file($pdfData['tmp_name'], $pdfFilePath)) {
 			echo 'Archivo PDF subido exitosamente.';

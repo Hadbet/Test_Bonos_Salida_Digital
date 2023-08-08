@@ -253,20 +253,22 @@ function enviar(foto) {
         })
             .then(response => response.text())
             .then(data => {
-                fetch("dao/DaoRegistroMultiBono.php", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(requestData)
-                })
-                    .then(response => response.text())
-                    .then(data => {
-                        console.log(data); // Mostrar la respuesta del servidor
-                    })
-                    .catch(error => {
-                        console.error("Error:", error);
-                    });
+                console.log(data)
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+
+        fetch("dao/DaoRegistroMultiBono.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestData)
+        })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); // Mostrar la respuesta del servidor
             })
             .catch(error => {
                 console.error("Error:", error);
