@@ -28,7 +28,10 @@ $unidadMedidaData = $arrayDatos['UnidadMedidaData'];
 $tipoBonoData = $arrayDatos['TipoBonoData'];
 
 for ($i = 0; $i < $Contador; $i++) {
-    echo 'entro a la funcion 0';
+    echo $descripcionData[$i];
+    echo $cantidadData[$i];
+    echo $unidadMedidaData[$i];
+    echo $tipoBonoData[$i];
     registrarBonos($descripcionData[$i],$cantidadData[$i],$unidadMedidaData[$i],$tipoBonoData[$i],$NombreAux,$emailAux,$nominaAux,$solicitanteAux,$empresaAux,$direccionAux,
         $areaAux,$retornoAux,$fechaRetornoAux,$comentariosAux,$causaAux,$IdPDF,$TipoBonoMulti);
 }
@@ -58,10 +61,10 @@ function registrarBonos($descripcion, $cantidad, $um, $tipoBono, $nombre, $email
     mysqli_close($conex);
 
     if (!$rsinsertUsu) {
-        $response = ['message' => 'Error recibidos y procesados correctamente ' .$insertRegistro];
+        $response = ['message' => 'Error recibidos y procesados correctamente ' ];
         echo json_encode($response);
     } else {
-        $response = ['message' => 'Datos recibidos y procesados correctamente ' .$insertRegistro];
+        $response = ['message' => 'Datos recibidos y procesados correctamente ' ];
         echo json_encode($response);
     }
 }
