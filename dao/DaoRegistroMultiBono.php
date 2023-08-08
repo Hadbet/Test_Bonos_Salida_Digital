@@ -27,7 +27,7 @@ try {
     $unidadMedidaData = $data['UnidadMedidaData'];
     $tipoBonoData = $data['TipoBonoData'];
 
-    for ($i = 0; $i < $Contador; $i++) {
+    for ($i = 0; $i < count($descripcionData); $i++) {
         echo $descripcionData[$i];
         echo $cantidadData[$i];
         echo $unidadMedidaData[$i];
