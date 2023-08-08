@@ -2,10 +2,11 @@
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	$pdfData = $_FILES["PDF"];
+	$idImagen=$_POST['idImagen'];
 
 	if (!empty($pdfData["name"])) {
 		$uploadDir = __DIR__ . '/dao/PDF/';
-		$pdfFileName = uniqid() . '_' . basename($pdfData['name']);
+		$pdfFileName = $idImagen;
 		$pdfFilePath = $uploadDir . $pdfFileName;
 
 		if (move_uploaded_file($pdfData['tmp_name'], $pdfFilePath)) {

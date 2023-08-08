@@ -216,6 +216,9 @@ function enviar(foto) {
             return primeraLetra.toUpperCase();
         }).replace(".", " ");
 
+        const uniqueId = generateUniqueId();
+        console.log(uniqueId);
+
         var otrosDatos = {
             NombreCompleto: nombreCompleto,
             Email: email.value,
@@ -228,7 +231,7 @@ function enviar(foto) {
             FechaRetorno: fechaRetorno.value,
             Comentarios: comentarios.value,
             Causa: causa.value,
-            PDF: idPDF
+            PDF: uniqueId
         };
 
         var requestData = {
@@ -242,6 +245,7 @@ function enviar(foto) {
         const pdfFile = document.getElementById("filesPDF").files[0];
         const formData = new FormData();
         formData.append("PDF", pdfFile);
+        formData.append("idImagen", uniqueId);
 
         fetch("upload.php", {
             method: "POST",
@@ -873,4 +877,10 @@ function enviarCorreo(email, nomina, solicitante, descripcion, cantidad, um, emp
             console.log(err);
         });
 
+}
+
+function generateUniqueId() {
+    const timestamp = Date.now().toString(36); // Convertir la marca de tiempo a base 36
+    const randomPart = Math.random().toString(36).substr(2, 5); // Generar parte aleatoria
+    return timestamp + randomPart;
 }
