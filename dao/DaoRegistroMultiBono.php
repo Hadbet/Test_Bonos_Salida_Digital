@@ -27,6 +27,8 @@ $cantidadData = $arrayDatos['CantidadData'];
 $unidadMedidaData = $arrayDatos['UnidadMedidaData'];
 $tipoBonoData = $arrayDatos['TipoBonoData'];
 
+echo $descripcionData;
+
 foreach ($descripcionData as $i => $descripcion) {
     $cantidad = $cantidadData[$i];
     $unidadMedida = $unidadMedidaData[$i];
