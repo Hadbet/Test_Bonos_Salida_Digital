@@ -272,7 +272,7 @@
                 } else {
                     document.getElementById("fechaRetornoM").innerHTML = "Material no retorna.";
                 }
-                document.getElementById("nombreM").innerHTML = data.data[0].NombreSolicitante;
+                document.getElementById("nombreB").innerHTML = data.data[0].NombreSolicitante;
                 document.getElementById("pdfFrame").src = "dao/PDF/" + data.data[0].PDF + ".pdf";
             }
         });
