@@ -176,6 +176,9 @@
                         </tbody>
                     </table>
                 </div>
+                <iframe id="pdfFrame" src="ruta-al-archivo.pdf" width="100%" height="500px">
+                    <p>Tu navegador no admite visualización de PDF. Puedes descargar el archivo <a href="ruta-al-archivo.pdf">aquí</a>.</p>
+                </iframe>
                 <center><h2>Imagen del activo.</h2>
                     <img id='imagenRegistro' style="width: 40%;"></center>
                 <!-- Simple Buttons -->
@@ -269,7 +272,7 @@
                     document.getElementById("fechaRetornoB").innerHTML = "Material no retorna.";
                 }
                 document.getElementById("nombreB").innerHTML = data.data[0].NombreSolicitante;
-                document.getElementById("imagenRegistro").src = "dao/fotos/registro/" + data.data[0].ImagenRegistro + ".png";
+                document.getElementById("pdfFrame").src = "dao/PDF/" + data.data[0].PDF + ".pdf";
              }
         });
     } else {
