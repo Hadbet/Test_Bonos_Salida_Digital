@@ -345,7 +345,7 @@
 
         $.getJSON(URL, function (data) {
             if (data.data[0].estatus == 'bien') {
-                enviarCorreoEncargado(Estatus);
+                //enviarCorreoEncargado(Estatus);
             } else {
                 alert("algo salio mal");
             }
