@@ -39,6 +39,10 @@ function cliente($Bandera,$Bitacora,$Estatus,$Retroalimentacion){
 	if($Bandera==5){
 	    $consP="update `BitacoraBonosSalida` set `ConfirmacionVigilancia` = '$Estatus' WHERE `IdBitacora` = '$Bitacora'";
 	}
+
+    if($Bandera==6){
+        $consP="update `BitacoraBonosSalidaMultiples` set `ConfirmacionEncargado` = '$Estatus' WHERE `Token` = '$Bitacora'";
+    }
 	
 	$rsconsPro=mysqli_query($conexion,$consP);
 	mysqli_close($conexion); 

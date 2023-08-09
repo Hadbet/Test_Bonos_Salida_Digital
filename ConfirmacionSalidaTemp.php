@@ -115,7 +115,7 @@
                 <br>
                 <!-- Simple Buttons -->
                 <div id="buttons">
-                    <a onclick="actualizarEstatus(1);" class="btn btnGreen">Confirmar</a>
+                    <a onclick="actualizarEstatus(2);" class="btn btnGreen">Confirmar</a>
                     <a id='botonRechazo' onclick="retro();" class="btn btnRed">Rechazar</a>
                 </div>
 
@@ -250,6 +250,9 @@
         $.getJSON('https://arketipo.mx/Test/BonoSalida/dao/DaoConsultarSalida.php?id=' + identificador, function (data) {
             for (var i = 0; i < data.data.length; i++) {
 
+
+                bitacora = data.data[0].Token;
+
                 const originalValue = data.data[i].Comentarios;
                 const newValue = originalValue.replace(/\r|\n/g, '');
 
@@ -329,12 +332,18 @@
 
 
     function actualizarEstatus(Estatus) {
-
+        var URL;
         document.getElementById('InicioSeccion').style.display = 'none';
         document.getElementById('carga').style.display = 'block';
         document.getElementById('carga').innerHTML = '<div class="loading"><center><img src="images/carga.gif" height="350px"><br/>Un momento, por favor...</center></div>';
 
-        $.getJSON('https://arketipo.mx/Controlling/BonoSalida/dao/DaoActualizarEstatus.php?bitacora=' + bitacora + '&estatus=' + Estatus + '&bandera=1', function (data) {
+        if (Estatus == '2'){
+            URL = 'https://arketipo.mx/Controlling/BonoSalida/dao/DaoActualizarEstatus.php?bitacora=' + bitacora + '&estatus=' + Estatus + '&bandera=6';
+        }else{
+            URL = 'https://arketipo.mx/Controlling/BonoSalida/dao/DaoActualizarEstatus.php?bitacora=' + bitacora + '&estatus=' + Estatus + '&bandera=1';
+        }
+
+        $.getJSON(URL, function (data) {
             if (data.data[0].estatus == 'bien') {
                 enviarCorreoEncargado(Estatus);
             } else {
