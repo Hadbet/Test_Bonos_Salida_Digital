@@ -68,7 +68,7 @@
                 <hr>
             </section>
             <br>
-            <section id="tablaIndividual" style='padding: 5%; margin-top: -8%'>
+            <section id="tablaMulti" style='padding: 5%; margin-top: -8%; display: none'>
                 <center><h3>Información General del bono de salida</h3></center>
                 <div class="table-wrapper">
 
@@ -107,8 +107,11 @@
                         </tbody>
                     </table>
                 </div>
-                <center><h2>Imagen del activo.</h2>
-                    <img id='imagenRegistro' style="width: 40%;"></center>
+                <center><h2>Archivo de los activo.</h2></center>
+                <iframe id="pdfFrame" src="ruta-al-archivo.pdf" width="100%" height="500px">
+                    <p>Tu navegador no admite visualización de PDF. Puedes descargar el archivo <a
+                            href="ruta-al-archivo.pdf">aquí</a>.</p>
+                </iframe>
                 <!-- Simple Buttons -->
                 <div id="buttons">
                     <a onclick="actualizarEstatus(1);" class="btn btnGreen">Confirmar</a>
@@ -118,7 +121,8 @@
                 <div id='retroalimentacion' class="col-12"
                      style="background: lavenderblush;padding: 10px; display:none;">
                     <center><h2>¿Por qué rechazas este bono de salida?</h2></center>
-                    <textarea style="resize:none; margin-bottom: 15px; margin-top: 15px;" placeholder="Causa" rows="6"
+                    <textarea style="resize:none; margin-bottom: 15px; margin-top: 15px;" placeholder="Causa"
+                              rows="6"
                               name="causa" id="txtCausa"
                               required></textarea>
                     <div id="buttons">
@@ -128,7 +132,7 @@
 
             </section>
             <!-- Table -->
-            <section id="tablaIndividual" style='padding: 5%; margin-top: -8%'>
+            <section id="tablaIndividual" style='padding: 5%; margin-top: -8%;display: none'>
                 <center><h3>Información General del bono de salida</h3></center>
                 <div class="table-wrapper">
                     <table class="alt">
@@ -176,9 +180,6 @@
                         </tbody>
                     </table>
                 </div>
-                <iframe id="pdfFrame" src="ruta-al-archivo.pdf" width="100%" height="500px">
-                    <p>Tu navegador no admite visualización de PDF. Puedes descargar el archivo <a href="ruta-al-archivo.pdf">aquí</a>.</p>
-                </iframe>
                 <center><h2>Imagen del activo.</h2>
                     <img id='imagenRegistro' style="width: 40%;"></center>
                 <!-- Simple Buttons -->
@@ -197,12 +198,9 @@
                         <a onclick="enviarCorreoEncargado(3)" class="btn btnRed">Confirmar rechazo</a>
                     </div>
                 </div>
-
             </section>
         </div>
     </div>
-
-
 </div>
 <!-- Footer -->
 <footer id="footer">
@@ -246,6 +244,8 @@
     }
 
     if (identificador.startsWith("M")) {
+        document.getElementById("tablaIndividual").style.display = 'none';
+        document.getElementById("tablaMulti").style.display = 'block';
         $.getJSON('https://arketipo.mx/Test/BonoSalida/dao/DaoConsultarSalida.php?id=' + identificador, function (data) {
             for (var i = 0; i < data.data.length; i++) {
 
@@ -258,7 +258,7 @@
                 const originalValueCausa = data.data[i].Causa;
                 const newValueCausa = originalValueCausa.replace(/\r|\n/g, '');
 
-                $('#tablaMultiData').append("<table class='alt'><tbody><tr><td>Descripción :</td><td>"+originalValueDescripcion+"</td></tr><tr><td>Cantidad :</td><td>"+data.data[i].Cantidad+" "+data.data[0].UnidadMedida+"</td></tr><tr><td>Tipo de material :</td><td>"+data.data[i].TipoSalida+"</td></tr></tbody></table>");
+                $('#tablaMultiData').append("<table class='alt'><tbody><tr><td>Descripción :</td><td>" + originalValueDescripcion + "</td></tr><tr><td>Cantidad :</td><td>" + data.data[i].Cantidad + " " + data.data[0].UnidadMedida + "</td></tr><tr><td>Tipo de material :</td><td>" + data.data[i].TipoSalida + "</td></tr></tbody></table>");
 
                 document.getElementById("empresaB").innerHTML = data.data[0].Empresa;
                 document.getElementById("direccionB").innerHTML = data.data[0].Direccion;
@@ -273,9 +273,11 @@
                 }
                 document.getElementById("nombreB").innerHTML = data.data[0].NombreSolicitante;
                 document.getElementById("pdfFrame").src = "dao/PDF/" + data.data[0].PDF + ".pdf";
-             }
+            }
         });
     } else {
+        document.getElementById("tablaIndividual").style.display = 'block';
+        document.getElementById("tablaMulti").style.display = 'none';
         $.getJSON('https://arketipo.mx/Test/BonoSalida/dao/DaoConsultarSalida.php?id=' + identificador, function (data) {
 
             if (data.data[0].ConfirmacionEncargado == '1') {
