@@ -110,7 +110,8 @@
                 <center><h2>Archivo de los activo.</h2></center>
                 <iframe id="pdfFrame" src="ruta-al-archivo.pdf" width="100%" height="500px">
                     <p>Tu navegador no admite visualización de PDF. Puedes descargar el archivo <a id="downloadPdf"
-                            href="ruta-al-archivo.pdf">aquí</a>.</p>
+                                                                                                   href="ruta-al-archivo.pdf">aquí</a>.
+                    </p>
                 </iframe>
                 <br>
                 <!-- Simple Buttons -->
@@ -222,7 +223,7 @@
 <script>
 
     var email, nomina, solicitante, descripcion, cantidad, um, empresa, portador, direccion, tipo, retorno,
-        fechaRetorno, causa, comentarios, correoEncargado, idImagen, bitacora;
+        fechaRetorno, causa, comentarios, correoEncargado, idImagen, bitacora, banderaBono = 0;
 
     var identificador = getParameterByName("013800ce");
 
@@ -245,6 +246,7 @@
     }
 
     if (identificador.startsWith("M")) {
+        banderaBono = 1;
         document.getElementById("tablaIndividual").style.display = 'none';
         document.getElementById("tablaMulti").style.display = 'block';
         $.getJSON('https://arketipo.mx/Test/BonoSalida/dao/DaoConsultarSalida.php?id=' + identificador, function (data) {
@@ -337,10 +339,10 @@
         document.getElementById('carga').style.display = 'block';
         document.getElementById('carga').innerHTML = '<div class="loading"><center><img src="images/carga.gif" height="350px"><br/>Un momento, por favor...</center></div>';
 
-        if (Estatus == '2'){
-            URL = 'https://arketipo.mx/Controlling/BonoSalida/dao/DaoActualizarEstatus.php?bitacora=' + bitacora + '&estatus=' + Estatus + '&bandera=6';
-        }else{
-            URL = 'https://arketipo.mx/Controlling/BonoSalida/dao/DaoActualizarEstatus.php?bitacora=' + bitacora + '&estatus=' + Estatus + '&bandera=1';
+        if (Estatus == '2') {
+            URL = 'https://arketipo.mx/Test/BonoSalida/dao/DaoActualizarEstatus.php?bitacora=' + bitacora + '&estatus=1&bandera=6';
+        } else {
+            URL = 'https://arketipo.mx/Test/BonoSalida/dao/DaoActualizarEstatus.php?bitacora=' + bitacora + '&estatus=' + Estatus + '&bandera=1';
         }
 
         $.getJSON(URL, function (data) {
@@ -360,9 +362,16 @@
             document.getElementById('carga').style.display = 'block';
             document.getElementById('carga').innerHTML = '<div class="loading"><center><img src="images/carga.gif" height="350px"><br/>Un momento, por favor...</center></div>';
 
-            $.getJSON('https://arketipo.mx/Controlling/BonoSalida/dao/DaoActualizarEstatus.php?bitacora=' + bitacora + '&estatus=' + estatus + '&bandera=0&retroalimentacion=' + document.getElementById("txtCausa").value, function (data) {
-            });
+            if (banderaBono == 1) {
+                $.getJSON('https://arketipo.mx/Test/BonoSalida/dao/DaoActualizarEstatus.php?bitacora=' + bitacora + '&estatus=' + 2 + '&bandera=7&retroalimentacion=' + document.getElementById("txtCausa").value, function (data) {
+                });
+            } else {
+                $.getJSON('https://arketipo.mx/Test/BonoSalida/dao/DaoActualizarEstatus.php?bitacora=' + bitacora + '&estatus=' + estatus + '&bandera=0&retroalimentacion=' + document.getElementById("txtCausa").value, function (data) {
+                });
+            }
         }
+
+        /*
 
         const data = new FormData();
 
@@ -421,7 +430,7 @@
             })
             .catch(function (err) {
                 console.log(err);
-            });
+            });*/
 
     }
 

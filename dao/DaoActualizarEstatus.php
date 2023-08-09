@@ -42,7 +42,11 @@ function cliente($Bandera,$Bitacora,$Estatus,$Retroalimentacion){
     if($Bandera==6){
         $consP="update `BitacoraBonosSalidaMultiples` set `ConfirmacionEncargado` = '$Estatus' WHERE `Token` = '$Bitacora'";
     }
-	
+
+    if($Bandera==7){
+        $consP="update `BitacoraBonosSalidaMultiples` set `Retroalimentacion` = '$Retroalimentacion',`ConfirmacionEncargado` = '2' WHERE `Token` = '$Bitacora'";
+    }
+
 	$rsconsPro=mysqli_query($conexion,$consP);
 	mysqli_close($conexion); 
 	$userData = array();
