@@ -243,7 +243,7 @@
     }
 
     if (identificador.startsWith("M")) {
-        $.getJSON('https://arketipo.mx/Controlling/BonoSalida/dao/DaoConsultaDetalleEntregas.php', function (data) {
+        $.getJSON('https://arketipo.mx/Controlling/BonoSalida/dao/DaoConsultarSalida.php?id=' + identificador, function (data) {
             for (var i = 0; i < data.data.length; i++) {
 
                 const originalValue = data.data[i].Comentarios;
