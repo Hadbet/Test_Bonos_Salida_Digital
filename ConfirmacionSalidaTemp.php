@@ -243,7 +243,7 @@
     }
 
     if (identificador.startsWith("M")) {
-        $.getJSON('https://arketipo.mx/Controlling/BonoSalida/dao/DaoConsultarSalida.php?id=' + identificador, function (data) {
+        $.getJSON('https://arketipo.mx/Test/BonoSalida/dao/DaoConsultarSalida.php?id=' + identificador, function (data) {
             for (var i = 0; i < data.data.length; i++) {
 
                 const originalValue = data.data[i].Comentarios;
@@ -273,7 +273,7 @@
              }
         });
     } else {
-        $.getJSON('https://arketipo.mx/Controlling/BonoSalida/dao/DaoConsultarSalida.php?id=' + identificador, function (data) {
+        $.getJSON('https://arketipo.mx/Test/BonoSalida/dao/DaoConsultarSalida.php?id=' + identificador, function (data) {
 
             if (data.data[0].ConfirmacionEncargado == '1') {
                 document.getElementById("main").innerHTML = '<section id="estatusBonoSalida" class="main special"><header class="major"><img style="width: 20%;" src="images/like.png"></center><h2 style="color: green !important;">Ya has confirmado este bono de salida.</h2></header></section>'
