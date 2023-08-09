@@ -12,7 +12,8 @@ cliente($Bandera,$Bitacora,$Estatus,$Retroalimentacion);
 function cliente($Bandera,$Bitacora,$Estatus,$Retroalimentacion){
 	$con = new LocalConector();
 	$conexion=$con->conectar();
-	
+
+    echo $Bandera.$Bitacora.$Estatus.$Retroalimentacion;
 	
     $Retroalimentacion = str_replace(array('"', "'","/",'\\'), '', $Retroalimentacion);
 	
