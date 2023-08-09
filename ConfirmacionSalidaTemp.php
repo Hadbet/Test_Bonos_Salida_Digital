@@ -78,31 +78,31 @@
                         <tbody>
                         <tr>
                             <td>Empresa :</td>
-                            <td id='empresaB'></td>
+                            <td id='empresaM'></td>
                         </tr>
                         <tr>
                             <td>Dirección de destino :</td>
-                            <td id='direccionB'></td>
+                            <td id='direccionM'></td>
                         </tr>
                         <tr>
                             <td>Causa de la salida :</td>
-                            <td id='causaB'></td>
+                            <td id='causaM'></td>
                         </tr>
                         <tr>
                             <td>Cometarios adicionales :</td>
-                            <td id='comentarioB'></td>
+                            <td id='comentarioM'></td>
                         </tr>
                         <tr style='background: papayawhip;'>
                             <td>Fecha de registro :</td>
-                            <td id='fechaRegistroB'></td>
+                            <td id='fechaRegistroM'></td>
                         </tr>
                         <tr>
                             <td>Fecha de salida :</td>
-                            <td id='fechaSalidaB'>pendiente de confirmar</td>
+                            <td id='fechaSalidaM'>pendiente de confirmar</td>
                         </tr>
                         <tr>
                             <td>Fecha de Retorno :</td>
-                            <td id='fechaRetornoB'></td>
+                            <td id='fechaRetornoM'></td>
                         </tr>
                         </tbody>
                     </table>
@@ -261,18 +261,18 @@
 
                 $('#tablaMultiData').append("<table class='alt'><tbody><tr><td>Descripción :</td><td>" + originalValueDescripcion + "</td></tr><tr><td>Cantidad :</td><td>" + data.data[i].Cantidad + " " + data.data[0].UnidadMedida + "</td></tr><tr><td>Tipo de material :</td><td>" + data.data[i].TipoSalida + "</td></tr></tbody></table>");
 
-                document.getElementById("empresaB").innerHTML = data.data[0].Empresa;
-                document.getElementById("direccionB").innerHTML = data.data[0].Direccion;
-                document.getElementById("causaB").innerHTML = data.data[0].Causa;
-                document.getElementById("comentarioB").innerHTML = data.data[0].Comentarios;
-                document.getElementById("fechaRegistroB").innerHTML = data.data[0].FechaRegistro;
+                document.getElementById("empresaM").innerHTML = data.data[0].Empresa;
+                document.getElementById("direccionM").innerHTML = data.data[0].Direccion;
+                document.getElementById("causaM").innerHTML = data.data[0].Causa;
+                document.getElementById("comentarioM").innerHTML = data.data[0].Comentarios;
+                document.getElementById("fechaRegistroM").innerHTML = data.data[0].FechaRegistro;
 
                 if (data.data[0].TipoRetorno == "Si") {
-                    document.getElementById("fechaRetornoB").innerHTML = data.data[0].FechaRetorno;
+                    document.getElementById("fechaRetornoM").innerHTML = data.data[0].FechaRetorno;
                 } else {
-                    document.getElementById("fechaRetornoB").innerHTML = "Material no retorna.";
+                    document.getElementById("fechaRetornoM").innerHTML = "Material no retorna.";
                 }
-                document.getElementById("nombreB").innerHTML = data.data[0].NombreSolicitante;
+                document.getElementById("nombreM").innerHTML = data.data[0].NombreSolicitante;
                 document.getElementById("pdfFrame").src = "dao/PDF/" + data.data[0].PDF + ".pdf";
             }
         });
