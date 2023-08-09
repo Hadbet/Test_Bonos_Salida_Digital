@@ -232,7 +232,7 @@ function enviar(foto) {
             Comentarios: comentarios.value,
             Causa: causa.value,
             PDF: uniqueId,
-            Contador:contador,
+            Contador: contador,
             TipoBonoMulti: tipoBonoAuxMulti
         };
 
@@ -285,232 +285,230 @@ function enviar(foto) {
         console.log(tipoBonoAuxMulti);
 
     } else {
-        /*
-                var email = document.getElementById('txtEmail');
-                var nomina = document.getElementById('txtNomina');
-                var solicitante = document.getElementById('txtSolicitante');
-                var descripcion = document.getElementById('txtDescripcion');
-                var cantidad = document.getElementById('txtCantidad');
-                var um = document.getElementById('txtUm');
-                var empresa = document.getElementById('txtEmpresa');
-                var direccion = document.getElementById('txtDireccion');
-                var tipo = document.getElementById('sltTipo');
-                //var tipoBono = document.getElementById('sltTipoBono');
-                var area = document.getElementById('sltArea');
-                var retorno = document.getElementById('sltRetorno');
-                var fechaRetorno = document.getElementById('txtFechaRetorno');
-                var causa = document.getElementById('txtCausa');
-                var comentarios = document.getElementById('txtComentarios');
-                var correoEncargado = document.getElementById('txtCorreoEncargado');
-                var categoria = "";
-                const correo = correoEncargado.value;
-                const partes = correo.split("@");
-                const nombreCompleto = partes[0].replace(/\b(\w)/g, function (match, primeraLetra) {
-                    return primeraLetra.toUpperCase();
-                }).replace(".", " ");
+        var email = document.getElementById('txtEmail');
+        var nomina = document.getElementById('txtNomina');
+        var solicitante = document.getElementById('txtSolicitante');
+        var descripcion = document.getElementById('txtDescripcion');
+        var cantidad = document.getElementById('txtCantidad');
+        var um = document.getElementById('txtUm');
+        var empresa = document.getElementById('txtEmpresa');
+        var direccion = document.getElementById('txtDireccion');
+        var tipo = document.getElementById('sltTipo');
+        //var tipoBono = document.getElementById('sltTipoBono');
+        var area = document.getElementById('sltArea');
+        var retorno = document.getElementById('sltRetorno');
+        var fechaRetorno = document.getElementById('txtFechaRetorno');
+        var causa = document.getElementById('txtCausa');
+        var comentarios = document.getElementById('txtComentarios');
+        var correoEncargado = document.getElementById('txtCorreoEncargado');
+        var categoria = "";
+        const correo = correoEncargado.value;
+        const partes = correo.split("@");
+        const nombreCompleto = partes[0].replace(/\b(\w)/g, function (match, primeraLetra) {
+            return primeraLetra.toUpperCase();
+        }).replace(".", " ");
 
 
-                if (correoEncargado.value.indexOf("@grammer.com") !== -1) {
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...', showConfirmButton: false, input: 'none',
-                        text: 'El correo ingresado del encargado es incorrecto no pertenece al dominio de grammer "@grammer.com"'
-                    })
-                    correoEncargado = '';
-                }
+        if (correoEncargado.value.indexOf("@grammer.com") !== -1) {
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...', showConfirmButton: false, input: 'none',
+                text: 'El correo ingresado del encargado es incorrecto no pertenece al dominio de grammer "@grammer.com"'
+            })
+            correoEncargado = '';
+        }
 
 
-                if (retorno.value == "No") {
-                    fechaRetorno = "0";
-                } else {
-                    fechaRetorno = fechaRetorno.value;
-                }
+        if (retorno.value == "No") {
+            fechaRetorno = "0";
+        } else {
+            fechaRetorno = fechaRetorno.value;
+        }
 
-                if (comentarios.value == "") {
-                    comentarios.value == "Ninguno";
-                }
+        if (comentarios.value == "") {
+            comentarios.value == "Ninguno";
+        }
 
-                const min = 1;
-                const max = 1000000;
-                const randomNum = Math.floor(Math.random() * (max - min + 1) + min);
+        const min = 1;
+        const max = 1000000;
+        const randomNum = Math.floor(Math.random() * (max - min + 1) + min);
 
-                if (email.value != "") {
-                    if (nomina.value != "") {
-                        if (solicitante.value != "") {
-                            if (descripcion.value != "") {
-                                if (cantidad.value != "") {
-                                    if (um.value != "") {
-                                        if (empresa.value != "") {
-                                            if (direccion.value != "") {
-                                                if (tipoBonoAux != "") {
-                                                    if (retorno.value != "") {
-                                                        if (causa.value != "") {
-                                                            if (comentarios.value != "") {
-                                                                if (area.value != "") {
-                                                                    if (tipo.value != "") {
-                                                                        if (foto != "data:,") {
-                                                                            var idImagen = nomina.value.toString() + solicitante.value.toString().substring(0, 2) + descripcion.value.toString().substring(0, 2) + cantidad.value + um.value + empresa.value.toString().substring(0, 2) + direccion.value.toString().substring(0, 2) + causa.value.toString().substring(0, 2) + comentarios.value.toString().substring(0, 2) + randomNum;
+        if (email.value != "") {
+            if (nomina.value != "") {
+                if (solicitante.value != "") {
+                    if (descripcion.value != "") {
+                        if (cantidad.value != "") {
+                            if (um.value != "") {
+                                if (empresa.value != "") {
+                                    if (direccion.value != "") {
+                                        if (tipoBonoAux != "") {
+                                            if (retorno.value != "") {
+                                                if (causa.value != "") {
+                                                    if (comentarios.value != "") {
+                                                        if (area.value != "") {
+                                                            if (tipo.value != "") {
+                                                                if (foto != "data:,") {
+                                                                    var idImagen = nomina.value.toString() + solicitante.value.toString().substring(0, 2) + descripcion.value.toString().substring(0, 2) + cantidad.value + um.value + empresa.value.toString().substring(0, 2) + direccion.value.toString().substring(0, 2) + causa.value.toString().substring(0, 2) + comentarios.value.toString().substring(0, 2) + randomNum;
 
-                                                                            document.getElementById('first').style.display = 'none';
-                                                                            document.getElementById('carga').style.display = 'block';
-                                                                            document.getElementById('carga').innerHTML = '<div class="loading"><center><img src="images/carga.gif" height="350px"><br/>Un momento, por favor...</center></div>';
+                                                                    document.getElementById('first').style.display = 'none';
+                                                                    document.getElementById('carga').style.display = 'block';
+                                                                    document.getElementById('carga').innerHTML = '<div class="loading"><center><img src="images/carga.gif" height="350px"><br/>Un momento, por favor...</center></div>';
 
-                                                                            const data = new FormData();
+                                                                    const data = new FormData();
 
-                                                                            data.append('email', email.value.trim());
-                                                                            data.append('nomina', nomina.value.trim());
-                                                                            data.append('solicitante', solicitante.value);
-                                                                            data.append('descripcion', descripcion.value.replace(/["'\\\/]/g, ''));
-                                                                            data.append('cantidad', cantidad.value);
-                                                                            data.append('um', um.value);
-                                                                            data.append('imagenRegistro', idImagen.replace(/["'\\\/]/g, ''));
-                                                                            data.append('empresa', empresa.value.replace(/["'\\\/]/g, ''));
-                                                                            data.append('direccion', direccion.value.replace(/["'\\\/]/g, ''));
-                                                                            data.append('tipo', tipo.value);
-                                                                            data.append('retorno', retorno.value);
-                                                                            data.append('fechaRetorno', fechaRetorno);
-                                                                            data.append('causa', causa.value.replace(/["'\\\/\n]/g, ''));
-                                                                            data.append('comentarios', comentarios.value.replace(/["'\\\/\n]/g, ''));
-                                                                            data.append('bandera', 1);
-                                                                            data.append('tipoBono', tipoBonoAux);
-                                                                            data.append('area', area.value);
-                                                                            data.append('imagen', foto);
-                                                                            data.append('correoEncargado', nombreCompleto);
+                                                                    data.append('email', email.value.trim());
+                                                                    data.append('nomina', nomina.value.trim());
+                                                                    data.append('solicitante', solicitante.value);
+                                                                    data.append('descripcion', descripcion.value.replace(/["'\\\/]/g, ''));
+                                                                    data.append('cantidad', cantidad.value);
+                                                                    data.append('um', um.value);
+                                                                    data.append('imagenRegistro', idImagen.replace(/["'\\\/]/g, ''));
+                                                                    data.append('empresa', empresa.value.replace(/["'\\\/]/g, ''));
+                                                                    data.append('direccion', direccion.value.replace(/["'\\\/]/g, ''));
+                                                                    data.append('tipo', tipo.value);
+                                                                    data.append('retorno', retorno.value);
+                                                                    data.append('fechaRetorno', fechaRetorno);
+                                                                    data.append('causa', causa.value.replace(/["'\\\/\n]/g, ''));
+                                                                    data.append('comentarios', comentarios.value.replace(/["'\\\/\n]/g, ''));
+                                                                    data.append('bandera', 1);
+                                                                    data.append('tipoBono', tipoBonoAux);
+                                                                    data.append('area', area.value);
+                                                                    data.append('imagen', foto);
+                                                                    data.append('correoEncargado', nombreCompleto);
 
-                                                                            //console.log("DaoRegistro.php/?email="+email.value+"&nomina="+nomina.value+"&solicitante="+solicitante.value+"&descripcion="+descripcion.value+"&cantidad="+cantidad.value+"&um="+um.value+"&imagenRegistro="+idImagen+"&empresa="+empresa.value+"&direccion="+direccion.value+"&tipo="+tipo.value+"&retorno="+retorno.value+"&fechaRetorno="+fechaRetorno.value+"&causa="+causa.value+"&comentarios="+comentarios.value+"&bandera=1"+"&tipoBono="+tipoBono.value+"&area="+area.value+"&correoEncargado="+correoEncargado.value);
+                                                                    //console.log("DaoRegistro.php/?email="+email.value+"&nomina="+nomina.value+"&solicitante="+solicitante.value+"&descripcion="+descripcion.value+"&cantidad="+cantidad.value+"&um="+um.value+"&imagenRegistro="+idImagen+"&empresa="+empresa.value+"&direccion="+direccion.value+"&tipo="+tipo.value+"&retorno="+retorno.value+"&fechaRetorno="+fechaRetorno.value+"&causa="+causa.value+"&comentarios="+comentarios.value+"&bandera=1"+"&tipoBono="+tipoBono.value+"&area="+area.value+"&correoEncargado="+correoEncargado.value);
 
 
-                                                                            fetch('dao/DaoRegistro.php', {
-                                                                                method: 'POST',
-                                                                                body: data
-                                                                            })
-                                                                                .then(function (response) {
-                                                                                    if (response.ok) {
-                                                                                        enviarCorreo(email.value, nomina.value, solicitante.value, descripcion.value, cantidad.value, um.value, empresa.value, tipo.value, retorno.value, fechaRetorno.value, causa.value, comentarios.value, idImagen, direccion.value, correoEncargado.value, area.value, tipoBonoAux);
-                                                                                    } else {
-                                                                                        throw "Error en la llamada Ajax";
-                                                                                    }
+                                                                    fetch('dao/DaoRegistro.php', {
+                                                                        method: 'POST',
+                                                                        body: data
+                                                                    })
+                                                                        .then(function (response) {
+                                                                            if (response.ok) {
+                                                                                enviarCorreo(email.value, nomina.value, solicitante.value, descripcion.value, cantidad.value, um.value, empresa.value, tipo.value, retorno.value, fechaRetorno.value, causa.value, comentarios.value, idImagen, direccion.value, correoEncargado.value, area.value, tipoBonoAux);
+                                                                            } else {
+                                                                                throw "Error en la llamada Ajax";
+                                                                            }
 
-                                                                                })
-                                                                                .then(function (texto) {
-                                                                                    console.log(texto);
-                                                                                })
-                                                                                .catch(function (err) {
-                                                                                    console.log(err);
-                                                                                });
-                                                                        } else {
-                                                                            Swal.fire({
-                                                                                icon: 'error',
-                                                                                title: 'Oops...',
-                                                                                showConfirmButton: false,
-                                                                                input: 'none',
-                                                                                text: 'Falta ingresar fotografía'
-                                                                            })
-                                                                        }
-                                                                    } else {
-                                                                        Swal.fire({
-                                                                            icon: 'error',
-                                                                            title: 'Oops...',
-                                                                            showConfirmButton: false,
-                                                                            input: 'none',
-                                                                            text: 'Seleccione el tipo de bono'
                                                                         })
-                                                                    }
+                                                                        .then(function (texto) {
+                                                                            console.log(texto);
+                                                                        })
+                                                                        .catch(function (err) {
+                                                                            console.log(err);
+                                                                        });
                                                                 } else {
                                                                     Swal.fire({
                                                                         icon: 'error',
                                                                         title: 'Oops...',
                                                                         showConfirmButton: false,
                                                                         input: 'none',
-                                                                        text: 'Seleccione el área'
+                                                                        text: 'Falta ingresar fotografía'
                                                                     })
                                                                 }
                                                             } else {
                                                                 Swal.fire({
                                                                     icon: 'error',
-                                                                    title: 'Oops...', showConfirmButton: false, input: 'none',
-                                                                    text: 'Ingrese los comentarios'
+                                                                    title: 'Oops...',
+                                                                    showConfirmButton: false,
+                                                                    input: 'none',
+                                                                    text: 'Seleccione el tipo de bono'
                                                                 })
                                                             }
                                                         } else {
                                                             Swal.fire({
                                                                 icon: 'error',
-                                                                title: 'Oops...', showConfirmButton: false, input: 'none',
-                                                                text: 'Ingrese la causa'
+                                                                title: 'Oops...',
+                                                                showConfirmButton: false,
+                                                                input: 'none',
+                                                                text: 'Seleccione el área'
                                                             })
                                                         }
                                                     } else {
                                                         Swal.fire({
                                                             icon: 'error',
                                                             title: 'Oops...', showConfirmButton: false, input: 'none',
-                                                            text: 'Ingrese el tipo de retorno'
+                                                            text: 'Ingrese los comentarios'
                                                         })
                                                     }
                                                 } else {
                                                     Swal.fire({
                                                         icon: 'error',
                                                         title: 'Oops...', showConfirmButton: false, input: 'none',
-                                                        text: 'Ingrese el tipo'
+                                                        text: 'Ingrese la causa'
                                                     })
                                                 }
                                             } else {
                                                 Swal.fire({
                                                     icon: 'error',
                                                     title: 'Oops...', showConfirmButton: false, input: 'none',
-                                                    text: 'Ingrese la dirección'
+                                                    text: 'Ingrese el tipo de retorno'
                                                 })
                                             }
                                         } else {
                                             Swal.fire({
                                                 icon: 'error',
                                                 title: 'Oops...', showConfirmButton: false, input: 'none',
-                                                text: 'Ingrese la empresa'
+                                                text: 'Ingrese el tipo'
                                             })
                                         }
                                     } else {
                                         Swal.fire({
                                             icon: 'error',
                                             title: 'Oops...', showConfirmButton: false, input: 'none',
-                                            text: 'Ingrese la unidad de medida'
+                                            text: 'Ingrese la dirección'
                                         })
                                     }
                                 } else {
                                     Swal.fire({
                                         icon: 'error',
                                         title: 'Oops...', showConfirmButton: false, input: 'none',
-                                        text: 'Ingrese la cantidad'
+                                        text: 'Ingrese la empresa'
                                     })
                                 }
                             } else {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...', showConfirmButton: false, input: 'none',
-                                    text: 'Ingrese la descripción'
+                                    text: 'Ingrese la unidad de medida'
                                 })
                             }
                         } else {
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Oops...', showConfirmButton: false, input: 'none',
-                                text: 'Ingrese el solicitante'
+                                text: 'Ingrese la cantidad'
                             })
                         }
                     } else {
                         Swal.fire({
                             icon: 'error',
                             title: 'Oops...', showConfirmButton: false, input: 'none',
-                            text: 'Ingrese la nómina'
+                            text: 'Ingrese la descripción'
                         })
                     }
                 } else {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...', showConfirmButton: false, input: 'none',
-                        text: 'Falta ingresar el nombre de la persona de emergencia'
+                        text: 'Ingrese el solicitante'
                     })
                 }
-        */
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...', showConfirmButton: false, input: 'none',
+                    text: 'Ingrese la nómina'
+                })
+            }
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...', showConfirmButton: false, input: 'none',
+                text: 'Falta ingresar el nombre de la persona de emergencia'
+            })
+        }
     }
 
 }

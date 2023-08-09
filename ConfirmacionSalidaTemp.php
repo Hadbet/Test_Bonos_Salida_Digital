@@ -109,9 +109,10 @@
                 </div>
                 <center><h2>Archivo de los activo.</h2></center>
                 <iframe id="pdfFrame" src="ruta-al-archivo.pdf" width="100%" height="500px">
-                    <p>Tu navegador no admite visualización de PDF. Puedes descargar el archivo <a
+                    <p>Tu navegador no admite visualización de PDF. Puedes descargar el archivo <a id="downloadPdf"
                             href="ruta-al-archivo.pdf">aquí</a>.</p>
                 </iframe>
+                <br>
                 <!-- Simple Buttons -->
                 <div id="buttons">
                     <a onclick="actualizarEstatus(1);" class="btn btnGreen">Confirmar</a>
